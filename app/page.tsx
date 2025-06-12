@@ -12,6 +12,8 @@ import Whatis from './components/Whatis';
 import MonthlyLeaders from "./components/MonthlyLeaders";
 import ImageSlider from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
+import Threejsed from "./components/Three";
+import SteamCards from "./components/SteamCards";
 
 interface Products{
   name: string,
@@ -113,6 +115,10 @@ export default function Home() {
 
   return (
     <div className="grid items-center justify-items-center xl:mt-8  gap-16 sm:p-0 font-[family-name:var(--font-lato)]">
+          {/* <Threejsed /> */}
+          <SteamCards />
+
+
       <header className="w-full flex items-center justify-between px-2 sm:px-8 mb-8">
         {/* Left: Menu Links */}
         <nav className="flex gap-4 sm:gap-8">
