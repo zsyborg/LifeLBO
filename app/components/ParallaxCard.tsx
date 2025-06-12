@@ -6,40 +6,40 @@ import 'atropos/css';
 function ParallaxCard() {
   return (
     <>
-        <div class="container">
-  <div class="card card0">
-    <div class="border">
+        <div className="container">
+  <div className="card card0">
+    <div className="border">
       <h2>Al Pacino</h2>
-      <div class="icons">
-        <i class="fa fa-codepen" aria-hidden="true"></i>
-        <i class="fa fa-instagram" aria-hidden="true"></i>
-        <i class="fa fa-dribbble" aria-hidden="true"></i>
-        <i class="fa fa-twitter" aria-hidden="true"></i>
-        <i class="fa fa-facebook" aria-hidden="true"></i>
+      <div className="icons">
+        <i className="fa fa-codepen" aria-hidden="true"></i>
+        <i className="fa fa-instagram" aria-hidden="true"></i>
+        <i className="fa fa-dribbble" aria-hidden="true"></i>
+        <i className="fa fa-twitter" aria-hidden="true"></i>
+        <i className="fa fa-facebook" aria-hidden="true"></i>
       </div>
     </div>
   </div>
-  <div class="card card1">
-    <div class="border">
+  <div className="card card1">
+    <div className="border">
       <h2>Ben Stiller</h2>
-      <div class="icons">
-        <i class="fa fa-codepen" aria-hidden="true"></i>
-        <i class="fa fa-instagram" aria-hidden="true"></i>
-        <i class="fa fa-dribbble" aria-hidden="true"></i>
-        <i class="fa fa-twitter" aria-hidden="true"></i>
-        <i class="fa fa-facebook" aria-hidden="true"></i>
+      <div className="icons">
+        <i className="fa fa-codepen" aria-hidden="true"></i>
+        <i className="fa fa-instagram" aria-hidden="true"></i>
+        <i className="fa fa-dribbble" aria-hidden="true"></i>
+        <i className="fa fa-twitter" aria-hidden="true"></i>
+        <i className="fa fa-facebook" aria-hidden="true"></i>
       </div>
     </div>
   </div>
-  <div class="card card2">
-    <div class="border">
+  <div className="card card2">
+    <div className="border">
       <h2>Patrick Stewart</h2>
-      <div class="icons">
-        <i class="fa fa-codepen" aria-hidden="true"></i>
-        <i class="fa fa-instagram" aria-hidden="true"></i>
-        <i class="fa fa-dribbble" aria-hidden="true"></i>
-        <i class="fa fa-twitter" aria-hidden="true"></i>
-        <i class="fa fa-facebook" aria-hidden="true"></i>
+      <div className="icons">
+        <i className="fa fa-codepen" aria-hidden="true"></i>
+        <i className="fa fa-instagram" aria-hidden="true"></i>
+        <i className="fa fa-dribbble" aria-hidden="true"></i>
+        <i className="fa fa-twitter" aria-hidden="true"></i>
+        <i className="fa fa-facebook" aria-hidden="true"></i>
       </div>
     </div>
   </div>
