@@ -17,7 +17,6 @@ import SteamCards from "./components/SteamCards";
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls, Environment } from '@react-three/drei';
 import PNGExtruder from "./components/Logo";
-import Intro from "./components/Intro";
 
 interface Products{
   name: string,
@@ -122,7 +121,6 @@ export default function Home() {
           </Canvas> */}
 
           
-        {/* <Intro /> */}
 
       <header className="w-full flex items-center justify-between px-2 mt-9 sm:px-8 mb-8">
         {/* Left: Menu Links */}

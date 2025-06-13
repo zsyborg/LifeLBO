@@ -4,14 +4,8 @@ import {motion, Transition} from 'motion/react';
 import ImageSlider from "react-image-gallery";
 
 
-function Intro() {
+function LatestAchievers() {
 
-
-    const transition = {
-        duration: 1.5,
-        delay: 0.5,
-        ease: [0.5, 0.71, 0.2, 1.01],
-      }
 
 
   return (
@@ -31,4 +25,4 @@ function Intro() {
   );
 }
 
-export default Intro;
+export default LatestAchievers;
