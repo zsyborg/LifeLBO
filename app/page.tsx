@@ -12,11 +12,9 @@ import Whatis from './components/Whatis';
 import MonthlyLeaders from "./components/MonthlyLeaders";
 import ImageSlider from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
-import Threejsed from "./components/Three";
 import SteamCards from "./components/SteamCards";
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls, Environment } from '@react-three/drei';
-import PNGExtruder from "./components/Logo";
 
 interface Products{
   name: string,
@@ -111,17 +109,6 @@ export default function Home() {
 
   return (
     <div className="grid items-center justify-items-center xl:mt-8 gap-16 sm:p-0 font-[family-name:var(--font-lato)]">
-          {/* <Threejsed /> */}
-          {/* <Canvas camera={{ position: [0, 0, 5], fov: 50 }} className="h-full">
-            <ambientLight intensity={0.5} />
-            <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-            <PNGExtruder imageUrl="/path/to/your/image.png" depth={0.5} />
-            <OrbitControls />
-            <Environment preset="city" />
-          </Canvas> */}
-
-          
-
       <header className="w-full flex items-center justify-between px-2 mt-9 sm:px-8 mb-8">
         {/* Left: Menu Links */}
         <nav className="flex gap-4 sm:gap-8">
