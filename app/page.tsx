@@ -14,6 +14,10 @@ import ImageSlider from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import Threejsed from "./components/Three";
 import SteamCards from "./components/SteamCards";
+import { Canvas } from '@react-three/fiber'
+import { OrbitControls, Environment } from '@react-three/drei';
+import PNGExtruder from "./components/Logo";
+import Intro from "./components/Intro";
 
 interface Products{
   name: string,
@@ -89,20 +93,13 @@ const pros = [
 export default function Home() {
   
   const [data, setData] = useState<Products[]>([]);
-  const [productcategory, setProductCategory] = useState<any[]>([]);
   const [pics, setPics] = useState<any[]>([]);
 
 
   useEffect(() => {
-    fetch('/api/products')
+    fetch('http://localhost:3001/v1/products')
       .then((res) => res.json())
       .then((data: Products[]) => setData(data));
-  }, []);
-
-  useEffect(() => {
-    axios.get("http://localhost:3001/v1/category")
-      .then((res: { data: SetStateAction<any[]>; }) => setProductCategory(res.data))
-      .catch((err: any) => console.error(err));
   }, []);
 
   // useEffect(() => {
@@ -114,12 +111,20 @@ export default function Home() {
 
 
   return (
-    <div className="grid items-center justify-items-center xl:mt-8  gap-16 sm:p-0 font-[family-name:var(--font-lato)]">
+    <div className="grid items-center justify-items-center xl:mt-8 gap-16 sm:p-0 font-[family-name:var(--font-lato)]">
           {/* <Threejsed /> */}
-          <SteamCards />
+          {/* <Canvas camera={{ position: [0, 0, 5], fov: 50 }} className="h-full">
+            <ambientLight intensity={0.5} />
+            <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
+            <PNGExtruder imageUrl="/path/to/your/image.png" depth={0.5} />
+            <OrbitControls />
+            <Environment preset="city" />
+          </Canvas> */}
 
+          
+        {/* <Intro /> */}
 
-      <header className="w-full flex items-center justify-between px-2 sm:px-8 mb-8">
+      <header className="w-full flex items-center justify-between px-2 mt-9 sm:px-8 mb-8">
         {/* Left: Menu Links */}
         <nav className="flex gap-4 sm:gap-8">
           <a href="/" className="font-medium hover:underline">Home</a>
@@ -194,22 +199,15 @@ export default function Home() {
               <p className="text-lg text-gray-600 mb-8">
                 Discover our wide range of products and services designed to meet your needs.
               </p>
+          <SteamCards />
+
             </div>
           </div>
         </div>
 
 
 
-        <div className="grid grid-cols-5 gap-2 justify-center text-center justify-items-center mx-auto">  
-          {productcategory.map((cat: any, idx: number) => (
-            <div className="bg-amber-400 box object-cover" key={cat.id || idx}>
-              {/* <img src={productcategory.Id || "https://picsum.photos/400/300"} alt={cat.name || "Category"} /> */}
-              {cat.Name || "Category"}
-              {/* - {cat.PictureId || "ID"} */}
-            </div>
-          ))}
-        </div>
-
+       
         <div className="container">
 
           <Whatis />
