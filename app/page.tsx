@@ -170,7 +170,6 @@ export default function Home() {
           showPlayButton={false}
           showNav={true}
           autoPlay={true}
-          autoPlayInterval={3000}
           />
 
 </div>
