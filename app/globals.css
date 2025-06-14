@@ -34,6 +34,9 @@ body {
 
 }
 
+.fontlight{
+  font-weight: 300 !important;
+}
 
 @keyframes fadeIn {
   from {

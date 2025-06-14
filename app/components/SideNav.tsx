@@ -51,7 +51,7 @@ function SideNav() {
 
           <ul id="dropdown-pages" className={isContentVisible ? 'fadeIn dropdownpages' : 'hidden py-2 space-y-2'}>
             <li>
-              <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">LBO Info</a>
+              <a href="/lbo/info" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">LBO Info</a>
             </li>
             <li>
               <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Change Password</a>
