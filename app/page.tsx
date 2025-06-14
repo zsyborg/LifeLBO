@@ -15,7 +15,8 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import SteamCards from "./components/SteamCards";
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls, Environment } from '@react-three/drei';
-
+import LatestAchievers from "./components/LatestAchievers";
+import Footer from "./components/Footer";
 interface Products{
   name: string,
   price: number
@@ -108,8 +109,8 @@ export default function Home() {
 
 
   return (
-    <div className="grid items-center justify-items-center xl:mt-8 gap-16 sm:p-0 font-[family-name:var(--font-lato)]">
-      <header className="w-full flex items-center justify-between px-2 mt-9 sm:px-8 mb-8">
+    <div className="grid items-center justify-items-center mt-8 gap-16 sm:p-0 font-[family-name:var(--font-lato)]" >
+      <header className="w-full flex items-center justify-between px-2 mt-9 sm:px-8">
         {/* Left: Menu Links */}
         <nav className="flex gap-4 sm:gap-8">
           <a href="/" className="font-medium hover:underline">Home</a>
@@ -200,8 +201,8 @@ export default function Home() {
 
         
           <MonthlyLeaders />
-
-
+          <LatestAchievers />
+          <Footer />
 
     </div>
   );
