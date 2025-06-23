@@ -10,6 +10,9 @@
   --foreground: #171717;
 }
 
+@theme{
+  --breakpoint-xs: 30rem
+}
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -32,6 +35,10 @@ body {
   overflow-x: hidden;
   transition: all 1s ease-in-out;
 
+}
+
+.homemenu li{
+  display: inline-flex;
 }
 
 .fontlight{
@@ -112,7 +119,6 @@ h2{
   transform-style: preserve-3d;
   mix-blend-mode: difference;
 }
-
 
 
 
@@ -640,4 +646,77 @@ background-size:100%;
 .extranavs li{
   display: inline-flex;
   justify-content: space-evenly;
+}
+
+
+
+/* Navbar.css */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  padding: 10px;
+}
+
+.navbar-left,
+.navbar-right {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navbar-left li,
+.navbar-right li {
+  margin-right: 20px;
+}
+
+.navbar-logo {
+  margin: 0 20px;
+}
+
+
+.navbar a:hover {
+  /* background-color: #ccc; */
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: block;
+  opacity: 0;
+  transition: all 500ms ease-in-out;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  color: wheat;
+  opacity: 1;
+  background-color: #6754e2;
+}
+
+.dropdown-menu li,
+.nested-dropdown-menu li {
+  padding: 5px;
+  /* width: 100px; */
+  display: block;
+}
+
+.dropdown-menu li:hover,
+.nested-dropdown-menu li:hover {
+}
+
+
+.bigbosstable td{
+  padding-top: 4px;
+  padding-bottom: 4px;
+  font-weight: bold;
+}
+
+.bigbosstable tr:nth-child(even){
+  background-color: #b5d6fc;
 }

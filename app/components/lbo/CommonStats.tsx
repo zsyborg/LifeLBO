@@ -1,24 +1,38 @@
-import React, { useEffect, useState } from 'react';
+import React, { cache, useEffect, useState } from 'react';
 import Image from 'next/image';
 import LBOStats from './LBOStats';
+import axios from 'axios';
 
 function CommonStats() {
 
-    const [data, setData] = useState([]);
-    useEffect(() => {
-        fetch('https://quotes-api-self.vercel.app/quote')
-      .then(response => response.json())
-      .then(data => {
-        // Handle the retrieved quote
-        setData(data);
-        console.log(data);
-      })
-      .catch(error => {
-        // Handle any errors
-        console.error(error);
-      });
-    }
-    , []);
+  const [member, setMember] = useState<any>(null)
+  const [data, setData] = useState<any[]>([]);
+
+
+  useEffect(() => {
+        const fetchData = async () => {
+          try {
+            // Fetch quote data
+            const quoteResponse = await fetch('https://quotes-api-self.vercel.app/quote', {cache: 'force-cache'});
+            const quoteData = await quoteResponse.json();
+            setData(quoteData);
+            console.log(quoteData);
+
+            // Fetch member data
+            const memberResponse = await fetch('/api/customer/LBO5239095');
+            const memberData = await memberResponse.json();
+            setMember(memberData[0]);
+            console.log(memberData[0]);
+          } catch (error) {
+            console.error('Error fetching data:', error);
+          }
+        };
+
+        fetchData();
+        
+        }, []);
+
+    
 
 
   return (
@@ -28,7 +42,7 @@ function CommonStats() {
                 
                 <div className="grid grid-cols-2 py-10 pl-8">
                   <div>
-                    <h2>Welcome Gabriela Kamei - LBO12345678</h2>
+                    <h3 className='text-2xl'>Welcome {member?.MPD_ChqPayTo || 'NA'} - {member?.MJD_MemNo || ''}</h3>
                   </div>
                   <div>
                     <p className="font-bold text-right">Quote of the day</p>

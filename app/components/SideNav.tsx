@@ -10,12 +10,17 @@ function SideNav() {
 
   const [open, setOpen] = useState(false);
   const [openSettings, setOpenSettings] = useState(false);
-
+  const [openSubMenus, setSubMenus] = useState<{[key: string]: boolean}>({})
   const [isContentVisible, setIsContentVisible] = useState(false);
   const [isTextvisible, setIsTextVisible] = useState(false);
 
-  const handleToggle = () => {
-    setIsContentVisible(!isContentVisible);
+  const handleToggle = (menuKey: string) => {
+    setSubMenus((prevstate) => ({
+      ...prevstate,
+      [menuKey]: !prevstate[menuKey],
+    }))
+    // setIsContentVisible(!isContentVisible);
+    console.log(menuKey + 'Opened')
   };
 
   const navText = () => {
@@ -37,66 +42,58 @@ function SideNav() {
           <p className={isTextvisible ? 'hidden' : 'text-white inline'}>Grabriela Kamei</p>
         </li>
         <li>
-          <a href="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+          <a href="/lbo/dashboard" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
             <SlScreenDesktop />
             <span className={isTextvisible ? 'hidden' : 'ml-3 navtext'}>Dashboard</span>
           </a>
         </li>
         <li>
-          <button onClick={handleToggle} type="button" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-pages" data-collapse-toggle="dropdown-pages">
+          <button onClick={() => handleToggle('myaccount')} type="button" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-pages" data-collapse-toggle="dropdown-pages">
             <FaUserTie/>
             <span className={isTextvisible ? 'hidden': 'flex-1 ml-3 text-left whitespace-nowrap'} >My Account</span>
             <svg aria-hidden="true" className={isTextvisible ? 'hidden' : 'w-6 h-6'} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
           </button>
 
-          <ul id="dropdown-pages" className={isContentVisible ? 'fadeIn dropdownpages' : 'hidden py-2 space-y-2'}>
+          <ul id="myaccount" className={openSubMenus['myaccount'] ? 'fadeIn dropdownpages' : 'hidden py-2 space-y-2'}>
             <li>
-              <a href="/lbo/info" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">LBO Info</a>
-            </li>
-            <li>
-              <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Change Password</a>
+              <a href="/lbo/myaccount/info" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">LBO Info</a>
             </li>
             <li>
               <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Upload KYC Document</a>
             </li>
             <li>
-              <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Orders</a>
+              <a href="/lbo/myaccount/orders" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Orders</a>
             </li>
             <li>
-              <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Invoices</a>
+              <a href="/lbo/myaccount/invoices" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Invoices</a>
             </li>
             <li>
               <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Address</a>
             </li>
             <li>
-              <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Welcome Letter</a>
+              <a href="/lbo/myaccount/welcomekit" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Welcome Kit</a>
             </li>
-            <li>
-              <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Receipt</a>
-            </li>
-            <li>
-              <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">ID Card</a>
-            </li>
+           
             <li>
               <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Download Documents</a>
             </li>
           </ul>
         </li>
         <li>
-          <button type="button" onClick={handleToggle} className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-sales" data-collapse-toggle="dropdown-sales">
+          <button type="button" onClick={() => handleToggle('mynetwork')} className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-sales" data-collapse-toggle="dropdown-sales">
             <LuNetwork/>
             <span className={isTextvisible ? 'hidden' : 'flex-1 ml-3 text-left whitespace-nowrap'}>My Network</span>
             <svg aria-hidden="true" className={isTextvisible ? 'hidden' : 'w-6 h-6'} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
           </button>
-          <ul id="dropdown-sales" className={isContentVisible ? 'fadeIn dropdownpages' : 'hidden py-2 space-y-2'}>
+          <ul id="mynetwork" className={openSubMenus['mynetwork'] ? 'fadeIn dropdownpages' : 'hidden py-2 space-y-2'}>
             <li>
-              <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Binary Tree</a>
+              <a href="/lbo/mynetwork/binary" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Binary Tree</a>
             </li>
             <li>
-              <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">ID-Wise Downline</a>
+              <a href="/lbo/mynetwork/idwise" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">ID-Wise Downline</a>
             </li>
             <li>
-              <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Generation Tree</a>
+              <a href="/lbo/mynetwork/generationtree" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Generation Tree</a>
             </li>
             <li>
               <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">My Direct</a>
@@ -105,22 +102,71 @@ function SideNav() {
               <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">My Downline</a>
             </li>
             <li>
-              <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Generation Downline</a>
+              <a href="" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Generation Downline</a>
             </li>
             <li>
-              <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Generation Tree Adjustment</a>
+              <a href="lbo/mynetwork/gentreeadjustment" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Generation Tree Adjustment</a>
             </li>
           </ul>
         </li>
         <li>
-          <a href="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+          <a href="#" onClick={() => handleToggle('mycommission')} className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
             <PiMoneyLight/>
             <span className={isTextvisible ? 'hidden' : 'flex-1 ml-3 whitespace-nowrap'}>My Commision</span>
             
             <svg aria-hidden="true" className={isTextvisible ? 'hidden' : 'w-6 h-6'} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-
           </a>
+          <ul id="mycommission" className={openSubMenus['mycommission'] ? 'fadeIn dropdownpages' : 'hidden py-2 space-y-2'}>
+            <li>
+              <a href="/lbo/mycommission/ledger" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Commission Ledger</a>
+            </li>
+            <li>
+              <a href="/lbo/mycommission/tds" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">TDS Details</a>
+            </li>
+            <li>
+              <a href="/lbo/mycommission/bigboss" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Bigboss Rewards</a>
+            </li>
+            <li>
+              <a href="/lbo/mynetwork/schemes" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Schemes & Offers</a>
+            </li>
+            <li>
+              <a href="/lbo/mynetwork/bonus" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Matching Bonus Rewards</a>
+            </li>
+            <li>
+              <a href="/lbo/mynetwork/lapsereport" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Lapse Pair Report</a>
+            </li>
+            <li>
+              <a href="/lbo/mynetwork/speedsales" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Profit Team Carry Forward</a>
+            </li>
+            <li>
+              <a href="/lbo/mynetwork/speedsales" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Spot Sales Incentive Income</a>
+            </li>
+            <li>
+              <a href="/lbo/mynetwork/speedsales" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Universal Rank Qualification</a>
+            </li>
+            <li>
+              <a href="/lbo/mynetwork/speedsales" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Unilevel Rank Qualification</a>
+            </li>
+            <li>
+              <a href="/lbo/mynetwork/speedsales" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Unilevel Career Income</a>
+            </li>
+            <li>
+              <a href="/lbo/mynetwork/speedsales" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Leadership Incentive Income</a>
+            </li>
+            <li>
+              <a href="/lbo/mynetwork/speedsales" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Leadership Incentive Rank Qualification</a>
+            </li>
+            <li>
+              <a href="/lbo/mynetwork/speedsales" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Same Level Income Report</a>
+            </li>
+            <li>
+              <a href="/lbo/mynetwork/speedsales" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Crorepati Rewards Qualification</a>
+            </li>
+          </ul>
         </li>
+
+
+
         <li>
           <button type="button" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-authentication" data-collapse-toggle="dropdown-authentication">
 
@@ -128,19 +174,9 @@ function SideNav() {
 
             <span className={isTextvisible ? 'hidden' : 'flex-1 ml-3 text-left whitespace-nowrap'}>Testimonial Transaction</span>
             
-            <svg aria-hidden="true" className={isTextvisible ? 'hidden' : 'w-6 h-6'} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+          
           </button>
-          <ul id="dropdown-authentication" className={isContentVisible ? 'fadeIn dropdownpages' : 'hidden py-2 space-y-2'}>
-            <li>
-              <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Sign In</a>
-            </li>
-            <li>
-              <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Sign Up</a>
-            </li>
-            <li>
-              <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Forgot Password</a>
-            </li>
-          </ul>
+          
         </li>
 
 
@@ -148,7 +184,7 @@ function SideNav() {
 
 
         <li>
-          <button type="button" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-authentication" data-collapse-toggle="dropdown-authentication">
+          <button type="button" onClick={() => handleToggle('ewallet')} className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-authentication" data-collapse-toggle="dropdown-authentication">
 
             <FaCreditCard/>
 
@@ -156,7 +192,7 @@ function SideNav() {
             
             <svg aria-hidden="true" className={isTextvisible ? 'hidden' : 'w-6 h-6'} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
           </button>
-          <ul id="dropdown-authentication" className={isContentVisible ? 'fadeIn dropdownpages' : 'hidden py-2 space-y-2'}>
+          <ul id="ewallet" className={openSubMenus['ewallet'] ? 'fadeIn dropdownpages' : 'hidden py-2 space-y-2'}>
             <li>
               <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Add Money Request</a>
             </li>
@@ -189,7 +225,7 @@ function SideNav() {
 
 
         <li>
-          <button type="button" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-authentication" data-collapse-toggle="dropdown-authentication">
+          <button type="button" onClick={() => handleToggle('epin')} className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-authentication" data-collapse-toggle="dropdown-authentication">
 
             <FaCreditCard/>
 
@@ -197,7 +233,7 @@ function SideNav() {
             
             <svg aria-hidden="true" className={isTextvisible ? 'hidden' : 'w-6 h-6'} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
           </button>
-          <ul id="dropdown-authentication" className={isContentVisible ? 'fadeIn dropdownpages' : 'hidden py-2 space-y-2'}>
+          <ul id="epin" className={openSubMenus['epin'] ? 'fadeIn dropdownpages' : 'hidden py-2 space-y-2'}>
             <li>
               <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Check E-Pin</a>
             </li>
@@ -223,7 +259,7 @@ function SideNav() {
 
 
         <li>
-          <button type="button" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-authentication" data-collapse-toggle="dropdown-authentication">
+          <button type="button" onClick={() => handleToggle('communication')} className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-authentication" data-collapse-toggle="dropdown-authentication">
 
             <LuSpeech/>
 
@@ -231,7 +267,7 @@ function SideNav() {
             
             <svg aria-hidden="true" className={isTextvisible ? 'hidden' : 'w-6 h-6'} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
           </button>
-          <ul id="dropdown-authentication" className={isContentVisible ? 'fadeIn dropdownpages' : 'hidden py-2 space-y-2'}>
+          <ul id="communication" className={openSubMenus['communication'] ? 'fadeIn dropdownpages' : 'hidden py-2 space-y-2'}>
             <li>
               <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Compose</a>
             </li>
@@ -251,7 +287,7 @@ function SideNav() {
 
 
         <li>
-          <button type="button" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-authentication" data-collapse-toggle="dropdown-authentication">
+          <button type="button" onClick={() => handleToggle('tickets')} className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-authentication" data-collapse-toggle="dropdown-authentication">
 
             <FaTicket/>
 
@@ -259,7 +295,7 @@ function SideNav() {
             
             <svg aria-hidden="true" className={isTextvisible ? 'hidden' : 'w-6 h-6'} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
           </button>
-          <ul id="dropdown-authentication" className={isContentVisible ? 'fadeIn dropdownpages' : 'hidden py-2 space-y-2'}>
+          <ul id="tickets" className={openSubMenus['tickets'] ? 'fadeIn dropdownpages' : 'hidden py-2 space-y-2'}>
             <li>
               <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Add New Ticket</a>
             </li>

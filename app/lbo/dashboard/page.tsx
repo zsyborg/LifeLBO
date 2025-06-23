@@ -1,10 +1,10 @@
 'use client';
 import Image from "next/image";
-import SideNavbar from "../components/SideNav";
+import SideNavbar from "@/app/components/SideNav";
 import { useState, useEffect } from "react";
-import CommonStats from "../components/lbo/CommonStats";
+import CommonStats from "@/app/components/lbo/CommonStats";
 
-export default function Login() {
+export default function Dashboard() {
 
   
 

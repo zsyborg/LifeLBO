@@ -1,4 +1,4 @@
-
+'use client'
 import React, { SetStateAction, useRef, useState, useEffect } from 'react'
 import axios from 'axios';
 

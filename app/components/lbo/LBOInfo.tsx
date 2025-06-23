@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { FileInput, HelperText, Label, TextInput, Dropdown, Select, Radio } from "flowbite-react";
+import { FileInput, HelperText, Label, TextInput, Dropdown, Select, Radio, Button, Card } from "flowbite-react";
 import axios from 'axios';
 import countries from '@/app/components/data/countries.json';
+import { LuSave } from 'react-icons/lu';
+import { FaPrint } from 'react-icons/fa6';
+import { AiFillEdit } from 'react-icons/ai';
+import {Dialog} from 'primereact/dialog';
+import { MdAddCircle } from 'react-icons/md';
 
 
 function LBOInfo() {
@@ -11,6 +16,7 @@ function LBOInfo() {
     const [month, setMonth] = useState('');
     const [year, setYear] = useState('');
     const [countryCode, setCountryCode] = useState('');
+    const [visible, setVisible] = useState(false)
 
     const handleCountryChange = (e) => {
         setCountryCode(e.target.value);
@@ -75,16 +81,8 @@ function LBOInfo() {
     <>
     
         <div className="w-full pl-64 pr-12">
-                
-                <div className="grid grid-cols-1 py-4 pl-8">
-                  <div>
-                    <h2>LBO Information - LBO12345</h2>
-                    <h3 className='fontlight text-2xl'>Sponsor Information</h3>
-                    <h4>Sponsor ID - Anant Gupta (LBO590602S)</h4>
-                  </div>
-                </div>
 
-                        <h3 className='fontlight bg-indigo-900 text-white text-2xl py-4 pl-8'>Your Personal Details</h3>
+                    <h3 className='fontlight bg-indigo-900 text-white text-2xl py-4 pl-8'>Your Personal Details</h3>
                 <div className='grid grid-cols-4 gap-8 py-4 pl-8'>
                     
                     <div>
@@ -123,13 +121,29 @@ function LBOInfo() {
                                 <p className='font-bold'>Email</p>
                                     <TextInput type='email' placeholder='Email' value='it@lifeisspeed.com'/>
                                     <br/>
-                                <Select>
+                                    <div className='grid grid-cols-2'>
+
+                                <Select className='w-40'>
                                     {countries.map((country) => (
                                         <option key={country.code} value={country.dial_code}>
                                             {country.dial_code} ({country.name})
                                         </option>
                                     ))}
                                 </Select>
+                                <TextInput type='number' className='w-48'/>
+                                    </div>
+                                    <br/>
+                                    <p className='font-bold'>Withdrawal Options</p>
+                                    <div className='grid grid-cols-2'>
+                                        <div>
+                                            <Radio name='auto' value="auto" />
+                                            <Label htmlFor="withdrawal">Auto</Label>
+                                        </div>
+                                        <div>
+                                            <Radio name='manual' value="manual" />
+                                            <Label htmlFor="withdrawal">Manual</Label>
+                                        </div>
+                                    </div>
                             </div>
 
 
@@ -142,16 +156,160 @@ function LBOInfo() {
                             <p>Full Name: Gabriela Kamei</p><br/>
                             <p>Payment Type: E-Pin</p><br/>
                             <p>Joining/Upgrade Amount: E-Pin</p><br/>
+                            <br/>
+                            <h4 className='font-bold'>Nominee Details</h4>
+                            <TextInput placeholder='Nominee Name'/>
+                            <br/>
+                            <p className='font-bold'>Nominee Date Of Birth</p>
+                                <div className='grid grid-cols-3'>
+                                    <Select value={day}>
+                                        {days.map((m, i) =>(
+                                            <option key={m} value={i + 1}>{m}</option>
+                                        ))}
+                                    </Select>
+                                    <Select value={month}>
+                                        {months.map((m, i) =>(
+                                            <option key={m} value={i + 1}>{m}</option>
+                                        ))}
+                                    </Select>
+                                    <Select value={year}>
+                                        {years.map((m, i) =>(
+                                            <option key={m} value={i + 1}>{m}</option>
+                                        ))}
+                                    </Select>
+                                </div>
+                            <p className='font-bold'>Nominee Relation</p>
+                            <Select>
+                                <option value="Father">Father</option>
+                                <option value="Mother">Mother</option>
+                                <option value="Brother">Brother</option>
+                                <option value="Sister">Sister</option>
+                                <option value="Husband">Husband</option>
+                                <option value="Wife">Wife</option>
+                                <option value="Son">Son</option>
+                                <option value="Father-In-Law">Father-In-Law</option>
+                                <option value="Mother-In-Law">Mother-In-Law</option>
+                                <option value="Brother-In-Law">Brother-In-Law</option>
+                                <option value="Sister-In-Law">Sister-In-Law</option>
+                                <option value="Nephew">Nephew</option>
+                                <option value="Uncle">Uncle</option>
+                                <option value="Aunt">Aunt</option>
+                            </Select>
+                            <div className='grid grid-cols-2 gap-8'>
+                                <Button pill color='green' className='text-white mt-8'><LuSave className='mr-2'/>Save</Button>
+                                <Button pill color='blue' className='text-white mt-8'><FaPrint className='mr-2'/>Preview</Button>
+                            </div>
                         </div>
                         <div>
                             <p>
-                            Address: 101, Madina Apartments, Tere Gali,, Near Jama Masjid, Andheri West., Mumbai, Mumbai, Maharashtra
+                            Address: 101, Madina Apartments, Tere Gali, Near Jama Masjid, Andheri West., Mumbai, Mumbai, Maharashtra
                             </p><br/>
                             <p>Zip/Postal Code: 400061</p><br/>
                             <p>City: Mumbai</p><br/>
-                            <p>State: Mumbai</p><br/>
+                            <p>State: Mumbai</p><br/><br/>
+                            <p className='font-bold'>Change Password</p>
+                            <TextInput type='password' placeholder='Old Password'/><br/>
+                            <TextInput type='password' placeholder='New Password'/><br/>
+                            <TextInput type='password' placeholder='Confirm Password'/>
                         </div>
                 </div>
+
+
+                <div>
+                <div className='bg-indigo-900 text-white w-full grid grid-cols-2'>
+                <h3 className='fontlight bg-indigo-900 text-white text-2xl py-4 pl-8'>Manage My Addresses</h3>
+                        <div className='justify-end text-right'>
+                        <div className='grid grid-cols-1 justify-end text-right h-full pr-4 items-center content-center relative'>
+                            <p>
+                                <MdAddCircle className='inline-block'/>Add Address
+                            </p>
+                        </div>
+                        </div>
+                </div>
+
+                    </div>
+
+                <div className='grid grid-cols-3 gap-8'>
+
+                <Card className="  mt-8">
+                    
+                    <p className="font-normal text-green-700 ">
+                        Zahid Shaikh<br/>
+                        101, MAdina Apts, Versova<br/>
+                        Mumbai, Maharashtra<br/>
+                        Mobile: +919167021410<br/>
+                        Email:zahid.shaikh@live.com<br/>
+                    </p>
+                    <p className="font-normal text-green-700 ">
+                    </p>
+                    <Button onClick={() => setVisible(true)}>
+                        Edit
+                        <AiFillEdit/>
+                    </Button>
+                    <Dialog className="bg-blue-800 text-white p-8" header="Header" visible={visible} maximizable style={{ width: '50vw' }} onHide={() => {if (!visible) return; setVisible(false); }}>
+                        <p className="m-0">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                    </Dialog>
+                    </Card>
+
+
+                    <Card className=" mt-8">
+                    
+                    <p className="font-normal text-green-700 ">
+                        Zahid Shaikh<br/>
+                        101, MAdina Apts, Versova<br/>
+                        Mumbai, Maharashtra<br/>
+                        Mobile: +919167021410<br/>
+                        Email:zahid.shaikh@live.com<br/>
+                    </p>
+                    <p className="font-normal text-green-700 ">
+                    </p>
+                    <Button onClick={() => setVisible(true)}>
+                        Edit
+                        <AiFillEdit/>
+                    </Button>
+                    <Dialog className="bg-blue-800 text-white p-8" header="Header" visible={visible} maximizable style={{ width: '50vw' }} onHide={() => {if (!visible) return; setVisible(false); }}>
+                        <p className="m-0">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                    </Dialog>
+                    </Card>
+
+
+
+                    <Card className=" mt-8">
+                    
+                    <p className="font-normal text-green-700 ">
+                        Zahid Shaikh<br/>
+                        101, MAdina Apts, Versova<br/>
+                        Mumbai, Maharashtra<br/>
+                        Mobile: +919167021410<br/>
+                        Email:zahid.shaikh@live.com<br/>
+                    </p>
+                    <p className="font-normal text-green-700 ">
+                    </p>
+                    <Button onClick={() => setVisible(true)}>
+                        Edit
+                        <AiFillEdit/>
+                    </Button>
+                    <Dialog className="bg-blue-800 text-white p-8" header="Header" visible={visible} maximizable style={{ width: '50vw' }} onHide={() => {if (!visible) return; setVisible(false); }}>
+                        <p className="m-0">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                    </Dialog>
+                    </Card>
+                    </div>
+
         </div>
           
     </>
