@@ -3,7 +3,6 @@ import { Geist, Geist_Mono, Lato, Raleway, Ubuntu_Sans } from "next/font/google"
 import "./globals.css";
 import { ThemeModeScript, ThemeConfig } from "flowbite-react";
 
-
 const lato = Lato({
   variable: "--font-lato",
   weight: ["300", "400", "700"],
@@ -42,6 +41,7 @@ export default function RootLayout({
       <body
         className={`${ubuntuSans.variable} ${geistMono.variable} antialiased`}
       >
+
         <ThemeConfig dark={false} />
         {children}
       </body>
