@@ -3,7 +3,7 @@ import Image from "next/image";
 import SideNavbar from "@/app/components/SideNav";
 import { useState, useEffect } from "react";
 import CommonStats from "@/app/components/lbo/CommonStats";
-
+import Sidebar from '@/app/components/NewSideNav';
 export default function Dashboard() {
 
   
@@ -13,8 +13,9 @@ export default function Dashboard() {
     <>
       <div className="w-full items-center justify-items-center min-h-screen">
         <div className="flex min-h-screen">
-          <div className="min-h-screen">
-            <SideNavbar />
+          <div className="min-h-screen lg:visible md:visible xl:visible sm:visible">
+            {/* <SideNavbar /> */}
+            <Sidebar/>
           </div>
 
             <CommonStats/>

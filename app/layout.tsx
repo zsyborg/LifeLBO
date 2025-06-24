@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Lato, Raleway, Ubuntu_Sans } from "next/font/google";
 import "./globals.css";
+import "./responsive.css";
+
 import { ThemeModeScript, ThemeConfig } from "flowbite-react";
 
 const lato = Lato({

@@ -11,7 +11,13 @@
 }
 
 @theme{
-  --breakpoint-xs: 30rem
+  --breakpoint-xs: 10rem;
+  --breakpoint-sm: 20rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+  --breakpoint-2xl: 96rem;
+
 }
 @theme inline {
   --color-background: var(--background);
@@ -719,4 +725,132 @@ background-size:100%;
 
 .bigbosstable tr:nth-child(even){
   background-color: #b5d6fc;
+}
+
+
+/* New Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 250px;
+  background: linear-gradient(to bottom, #4e54c8, #8f94fb);
+  color: white;
+  overflow: hidden;
+  transition: width 0.3s ease;
+  z-index: 1000;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar.collapsed {
+  width: 80px;
+  background: linear-gradient(to bottom, #4e54c8, #8f94fb);
+  left: 0;
+  position: fixed;
+}
+
+.collapsed{
+  width: 60px;
+  background: linear-gradient(to bottom, #4e54c8, #8f94fb);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  position: fixed;
+  color: white;
+}
+
+.sidebarHeader {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  white-space: nowrap;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: opacity 0.3s ease;
+}
+
+.toggleBtn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 5px;
+  transition: transform 0.3s ease;
+}
+
+.sidebar.collapsed .toggleBtn {
+  transform: rotate(180deg);
+}
+
+.navLinks {
+  padding: 20px 0;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  margin: 5px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 6px;
+  white-space: nowrap;
+  position: relative;
+}
+
+.navItem:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.icon {
+  font-size: 1.2rem;
+  width: 24px;
+  margin-right: 15px;
+  transition: margin-right 0.3s ease;
+}
+
+.sidebar.collapsed .icon {
+  margin-right: 0;
+}
+
+.navText {
+  transition: opacity 0.3s ease;
+}
+
+.tooltip {
+  position: absolute;
+  left: 85px;
+  background: #333;
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  z-index: 1001;
+}
+
+.sidebar.collapsed .navItem:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 80px;
+  }
+
+  .sidebar:not(.collapsed) {
+    width: 250px;
+  }
 }

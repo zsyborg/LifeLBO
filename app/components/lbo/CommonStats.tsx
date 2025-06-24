@@ -39,20 +39,21 @@ function CommonStats() {
   return (
     <>
     
-        <div className="w-full pl-64 pr-12">
+        {/* <div className="w-full lg:pl-64 md:pl-64 sm:pl-0 xs:pl-0 xs:pr-0 lg:pr-12 md:pr-12 pr-0 sm:pr-0"> */}
+        <div className="w-full  pr-0 sm:pr-0">
                 
                 <div className="grid grid-cols-2 py-10 pl-8">
                   <div>
                     <h3 className='text-2xl'>Welcome {member?.MPD_ChqPayTo || 'NA'} - {member?.MJD_MemNo || ''}</h3>
                   </div>
-                  <div>
-                    <p className="font-bold text-right">Quote of the day</p>
-                    <p className="font-bold text-right">{data.quote}</p>
+                  <div className='xs:hidden'>
+                    <p className="quote font-bold text-right">Quote of the day</p>
+                    <p className="quote font-bold text-right">{data.quote}</p>
                   </div>
                 </div>
                     
                 <h2 className="pl-8 h-fit text-white bg-indigo-900 my-12">My Statistics</h2>
-                <div className="grid grid-cols-4 w-full pr-12 gap-8 mx-8 justify-center items-center">
+                <div className="grid grid-cols-4 lg:grid-cols-4 md:grid-cols-4 xs:grid-cols-1 w-full pr-12 gap-8 mx-8 justify-center items-center">
                   <div className="h-40 bg-blue-500 text-white justify-center items-center flex flex-col rounded-lg shadow-2xl">
                       <h3 className="text-3xl text-white">Paid 21-April-2025</h3>
                       <p>My Status</p>
@@ -86,7 +87,7 @@ function CommonStats() {
     
                 </div>
     
-                <div className="grid grid-cols-4 w-full pr-12 gap-8 mx-8 justify-center items-center mt-8">
+                <div className="grid lg:grid-cols-4 md:grid-cols-4 xs:grid-cols-1 w-full pr-12 gap-8 mx-8 justify-center items-center mt-8">
                   <div className="h-40 bg-blue-500 text-white justify-center items-center flex flex-col rounded-lg shadow-2xl">
                       <h3 className="text-3xl text-white">-</h3>
                       <p>Big Boss Reward Status</p>
@@ -121,7 +122,7 @@ function CommonStats() {
                 </div>
     
     
-                <div className="grid grid-cols-2 w-full pr-12 gap-8 mx-8 justify-center items-center mt-8">
+                <div className="grid lg:grid-cols-2 md:grid-cols-2 xs:grid-cols-1 xl:grid-cols-2 w-full pr-12 gap-8 mx-8 justify-center items-center mt-8">
                   <div className="h-40 bg-blue-500 text-white justify-center items-center flex flex-col rounded-lg shadow-2xl">
                       <h3 className="text-3xl text-white">21-April-2025</h3>
                       <p>Last Sign-In</p>
