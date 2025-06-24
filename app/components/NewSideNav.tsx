@@ -86,9 +86,7 @@ const Sidebar = () => {
                 <LuMenu onClick={navText} className='text-white text-3xl text-center pl-2 pb-2'/>
               </li> */}
         
-                <li className="items-center justify-items-center">
-                  
-                </li>
+                
                 <li>
                   <a href="/lbo/dashboard" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <SlScreenDesktop />
@@ -366,7 +364,7 @@ const Sidebar = () => {
                     </li>
         
                 <li>
-                  <button type="button" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-authentication" data-collapse-toggle="dropdown-authentication">
+                  <button type="button" className="flex items-center p-2 w-full text-base font-normal text-white rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-authentication" data-collapse-toggle="dropdown-authentication">
         
                     <AiFillHome/>
         
@@ -376,24 +374,24 @@ const Sidebar = () => {
                     </li>
         
                     <li>
-                      <ul className='extranavs flex content-evenly place-content-evenly'>
+                      <ul className='extranavs mt-4 content-evenly place-content-evenly'>
                         <li>
-                        <a href="#" className="inline-flex justify-center p-2 text-gray-500 rounded cursor-pointer dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-600">
+                        <a href="#" className="inline-flex justify-center p-2 text-white rounded cursor-pointer hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-600">
                           <FaUser/>
                         </a>
                         </li>
                         <li>
-                        <a href="#" data-tooltip-target="tooltip-settings" className="inline-flex justify-center p-2 text-gray-500 rounded cursor-pointer dark:text-gray-400 dark:hover:text-white hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-600">
+                        <a href="#" data-tooltip-target="tooltip-settings" className="inline-flex justify-center p-2 text-white rounded cursor-pointer  dark:hover:text-white hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-600">
                           <FaBell/>
                         </a>
                         </li>
                         <li>
-                        <a href="#" data-tooltip-target="tooltip-settings" className="inline-flex justify-center p-2 text-gray-500 rounded cursor-pointer dark:text-gray-400 dark:hover:text-white hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-600">
+                        <a href="#" data-tooltip-target="tooltip-settings" className="inline-flex justify-center p-2 text-white rounded cursor-pointer  dark:hover:text-white hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-600">
                           <SlLogout/>
                         </a>
                         </li>
                         <li>
-                        <a href="#" data-tooltip-target="tooltip-settings" className="inline-flex justify-center p-2 text-gray-500 rounded cursor-pointer dark:text-gray-400 dark:hover:text-white hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-600">
+                        <a href="#" data-tooltip-target="tooltip-settings" className="inline-flex justify-center p-2 text-white rounded cursor-pointer  dark:hover:text-white hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-600">
                           <FaLink/>
                         </a>
                         </li>
