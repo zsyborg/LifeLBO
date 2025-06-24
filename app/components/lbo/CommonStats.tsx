@@ -24,9 +24,9 @@ function CommonStats() {
           //   const memberData = await memberResponse.json();
           //   setMember(memberData[0]);
           //   console.log(memberData[0]);
-          // } catch (error) {
-          //   console.error('Error fetching data:', error);
-          // }
+          } catch (error) {
+            console.error('Error fetching data:', error);
+          }
         };
 
         fetchData();
