@@ -18,9 +18,9 @@ function LBOInfo() {
     const [countryCode, setCountryCode] = useState('');
     const [visible, setVisible] = useState(false)
 
-    const handleCountryChange = (e) => {
-        setCountryCode(e.target.value);
-    };
+    // const handleCountryChange = (e: { target: { value: React.SetStateAction<string>; }; }) => {
+    //     setCountryCode(e.target.value);
+    // };
 
     const days = Array.from({length: 31}, (_, i) => i + 1)
     const months = [
@@ -39,17 +39,17 @@ function LBOInfo() {
       ];
       const years = Array.from({ length: 120 }, (_, i) => new Date().getFullYear() - i);
     
-      const handleDayChange = (e) => {
-        setDay(e.target.value);
-      };
+    //   const handleDayChange = (e) => {
+    //     setDay(e.target.value);
+    //   };
     
-      const handleMonthChange = (e) => {
-        setMonth(e.target.value);
-      };
+    //   const handleMonthChange = (e) => {
+    //     setMonth(e.target.value);
+    //   };
     
-      const handleYearChange = (e) => {
-        setYear(e.target.value);
-      };
+    //   const handleYearChange = (e) => {
+    //     setYear(e.target.value);
+    //   };
 
 
 
@@ -64,9 +64,9 @@ function LBOInfo() {
                     const year = newdob.getFullYear();
                     console.log(year);
 
-                    setDay(day);
-                    setMonth(month);
-                    setYear(year);
+                    setDay(day.toString());
+                    setMonth(month.toString());
+                    setYear(year.toString());
                 } catch (error) {
                   console.error(error);
                 }

@@ -90,7 +90,7 @@ const pros = [
 
 export default function Home() {
   
-  const [products, setProducts] = useState<Products[]>([]);
+  const [products, setProducts] = useState<any>([]);
   const [pics, setPics] = useState<any[]>([]);
 
 
@@ -148,7 +148,7 @@ export default function Home() {
               </p>
 
               <div className="grid grid-cols-3">
-            {products.map((product, index) => (
+            {products.map((product:any, index:any) => (
                 <div key={index}>
                   <p>{product.Name}</p>
                   <p>{product.Price}</p>

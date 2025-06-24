@@ -10,22 +10,22 @@ import {Chart} from 'primereact/chart';
 const columns = [
 	{
 		name: 'Status',
-		selector: row => row.status,
+		selector: (row: { status: any; }) => row.status,
 		sortable: true,
 	},
 	{
 		name: 'Left Count',
-		selector: row => row.leftcount,
+		selector: (row: { leftcount: any; }) => row.leftcount,
 		sortable: true,
 	},
   {
 		name: 'Right Count',
-		selector: row => row.rightcount,
+		selector: (row: { rightcount: any; }) => row.rightcount,
 		sortable: true,
 	},
   {
 		name: 'Total Count',
-		selector: row => row.totalcount,
+		selector: (row: { totalcount: any; }) => row.totalcount,
 		sortable: true,
 	},
 ];
@@ -34,12 +34,12 @@ const columns = [
 const gencolumns = [
 	{
 		name: 'Status',
-		selector: row => row.status,
+		selector: (row: { status: any; }) => row.status,
 		sortable: true,
 	},
 	{
 		name: 'Total Count',
-		selector: row => row.leftcount,
+		selector: (row: { leftcount: any; }) => row.leftcount,
 		sortable: true,
 	}
 ];
@@ -48,16 +48,16 @@ const gencolumns = [
 const gencvcolumns = [
 	{
 		name: 'Status',
-		selector: row => row.status,
+		selector: (row: { status: any; }) => row.status,
 		sortable: true,
 	},
 	{
 		name: 'Total CV',
-		selector: row => row.leftcount,
+		selector: (row: { leftcount: any; }) => row.leftcount,
 	},
   {
 		name: 'Own CV',
-		selector: row => row.leftcount,
+		selector: (row: { leftcount: any; }) => row.leftcount,
 	}
 ];
 
@@ -66,16 +66,16 @@ const gencvcolumns = [
 const gensvcolumns = [
 	{
 		name: 'Status',
-		selector: row => row.status,
+		selector: (row: { status: any; }) => row.status,
 		sortable: true,
 	},
 	{
 		name: 'Total SV',
-		selector: row => row.leftcount,
+		selector: (row: { leftcount: any; }) => row.leftcount,
 	},
   {
 		name: 'Own SV',
-		selector: row => row.leftcount,
+		selector: (row: { leftcount: any; }) => row.leftcount,
 	}
 ];
 
@@ -83,16 +83,16 @@ const gensvcolumns = [
 const gensalecolumns = [
 	{
 		name: 'Status',
-		selector: row => row.status,
+		selector: (row: { status: any; }) => row.status,
 		sortable: true,
 	},
 	{
 		name: 'Total Sale',
-		selector: row => row.leftcount,
+		selector: (row: { leftcount: any; }) => row.leftcount,
 	},
   {
 		name: 'Own Sale',
-		selector: row => row.leftcount,
+		selector: (row: { leftcount: any; }) => row.leftcount,
 	}
 ];
 
@@ -138,9 +138,9 @@ const customStyles = {
 	},
 };
 
-const accoptions: AccordionPanelProps = {
-  alwaysOpen: true,
-}
+// const accoptions: AccordionPanelProps = {
+//   alwaysOpen: true,
+// }
 
 
 function LBOStats() {

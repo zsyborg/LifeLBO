@@ -66,7 +66,7 @@ export default function GenTreeAdj() {
     ]);
 
     
-    const nodeTemplate = (node) => {
+    const nodeTemplate = (node:any) => {
         if (node.type === 'person') {
             return (
                 <div className="flex flex-column">

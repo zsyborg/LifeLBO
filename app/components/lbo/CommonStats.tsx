@@ -3,10 +3,11 @@ import Image from 'next/image';
 import LBOStats from './LBOStats';
 import axios from 'axios';
 
+
 function CommonStats() {
 
-  const [member, setMember] = useState<any>(null)
-  const [data, setData] = useState<any[]>([]);
+  const [member, setMember] = useState<any>([null])
+  const [data, setData] = useState<any>([]);
 
 
   useEffect(() => {
@@ -19,13 +20,13 @@ function CommonStats() {
             console.log(quoteData);
 
             // Fetch member data
-            const memberResponse = await fetch('/api/customer/LBO5239095');
-            const memberData = await memberResponse.json();
-            setMember(memberData[0]);
-            console.log(memberData[0]);
-          } catch (error) {
-            console.error('Error fetching data:', error);
-          }
+          //   const memberResponse = await fetch('/api/customer/LBO5239095');
+          //   const memberData = await memberResponse.json();
+          //   setMember(memberData[0]);
+          //   console.log(memberData[0]);
+          // } catch (error) {
+          //   console.error('Error fetching data:', error);
+          // }
         };
 
         fetchData();

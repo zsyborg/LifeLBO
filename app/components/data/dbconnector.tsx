@@ -15,10 +15,13 @@ const dbConfig = {
   },
 };
 
+const connectionString = `Server=${process.env.DB_SERVER};Database=${process.env.DB_NAME};User Id=${process.env.DB_USER};Password=${process.env.DB_PASSWORD};`;
+
+
 
 export const connectToDb = async () => {
   try {
-    await sql.connect(dbConfig);
+    await sql.connect(connectionString);
     console.log('Connected to MSSQL database');
   } catch (error) {
     console.error('Error connecting to MSSQL database:', error);
