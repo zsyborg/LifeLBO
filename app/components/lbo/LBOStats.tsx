@@ -249,7 +249,7 @@ function LBOStats() {
           
         <Tabs aria-label="Default tabs" variant="default">
           <TabItem active title="Count">
-             <div className='flex'>
+             <div className='grid grid-cols-1 min-w-screen'>
                 <div className='basis-1/2'>
                 <DataTable
                 columns={columns}
@@ -259,7 +259,7 @@ function LBOStats() {
                 responsive={true}
                 customStyles={customStyles}
               />
-
+  
               <div className='grid grid-cols-5 mytable bg-white px-4 py-4 mt-8'>
                 <span>Status</span>
                 <span>Today Count</span>
@@ -950,7 +950,7 @@ function LBOStats() {
           <AccordionContent>
             <h2>LBO Payout</h2>
           <div className='flex'>
-                <div className='basis-1/2'>
+                <div className='basis-1/2 '>
                 <DataTable
                   columns={gencolumns}
                   data={datatables}

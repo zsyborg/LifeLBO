@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
+
 import { FileInput, HelperText, Label, TextInput, Dropdown, Select, Radio, Button, Card } from "flowbite-react";
 import axios from 'axios';
 import countries from '@/app/components/data/countries.json';
@@ -75,7 +76,45 @@ function LBOInfo() {
           }, []);
 
 
-
+          const [formData, setFormData] = useState({
+            file: null,
+            name: '',
+          });
+          const [uploading, setUploading] = useState(false);
+        
+          const handleFileChange = (event:any) => {
+            setFormData({ ...formData, file: event.target.files[0] });
+          };
+        
+          const handleInputChange = (event:any) => {
+            setFormData({ ...formData, [event.target.name]: event.target.value });
+          };
+        
+          const handleSubmit = async (event:any) => {
+            event.preventDefault();
+            setUploading(true);
+        
+            const data = new FormData();
+            data.append('file', formData.file);
+            data.append('name', formData.name);
+        
+            try {
+              const response = await fetch('http://localhost:3001/api/image', {
+                method: 'POST',
+                body: data,
+              });
+        
+              if (response.ok) {
+                console.log('Form submitted successfully!');
+              } else {
+                console.error('Error submitting form:', response.statusText);
+              }
+            } catch (error) {
+              console.error('Error submitting form:', error);
+            } finally {
+              setUploading(false);
+            }
+          };
 
   return (
     <>
@@ -83,8 +122,8 @@ function LBOInfo() {
         <div className="w-full pl-64 pr-12">
 
                     <h3 className='fontlight bg-indigo-900 text-white text-2xl py-4 pl-8'>Your Personal Details</h3>
+                    <form onSubmit={handleSubmit}>
                 <div className='grid grid-cols-4 gap-8 py-4 pl-8'>
-                    
                     <div>
                         <p>Profile Picture</p>
                         <img src="/logo.png"width={80} alt='Profile Picture' />
@@ -92,7 +131,7 @@ function LBOInfo() {
                             <Label className="mb-2 block" htmlFor="file">
                                 Upload file
                             </Label>
-                            <FileInput id="file" />
+                            <FileInput id="file" onChange={handleFileChange} />
                             <HelperText className="mt-1">A profile picture is useful to confirm your are logged into your account</HelperText>
                             <HelperText>
                                 * N.B.: Image size should not exceed than 4 MB and Image format should be .PNG, .JPG and .JPEG 
@@ -119,7 +158,7 @@ function LBOInfo() {
                                 </div>
                                 <br/>
                                 <p className='font-bold'>Email</p>
-                                    <TextInput type='email' placeholder='Email' value='it@lifeisspeed.com'/>
+                                    <TextInput  type='email' placeholder='Email' onChange={handleInputChange}/>
                                     <br/>
                                     <div className='grid grid-cols-2'>
 
@@ -196,7 +235,7 @@ function LBOInfo() {
                                 <option value="Aunt">Aunt</option>
                             </Select>
                             <div className='grid grid-cols-2 gap-8'>
-                                <Button pill color='green' className='text-white mt-8'><LuSave className='mr-2'/>Save</Button>
+                                <Button type='submit' disabled={uploading} pill color='green' className='text-white mt-8'><LuSave className='mr-2'/> {uploading ? 'Saving...' : 'Save'}</Button>
                                 <Button pill color='blue' className='text-white mt-8'><FaPrint className='mr-2'/>Preview</Button>
                             </div>
                         </div>
@@ -213,6 +252,7 @@ function LBOInfo() {
                             <TextInput type='password' placeholder='Confirm Password'/>
                         </div>
                 </div>
+                        </form>
 
 
                 <div>

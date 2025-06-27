@@ -19,11 +19,28 @@ function CommonStats() {
             setData(quoteData);
             console.log(quoteData);
 
-            // Fetch member data
-          //   const memberResponse = await fetch('/api/customer/LBO5239095');
-          //   const memberData = await memberResponse.json();
-          //   setMember(memberData[0]);
-          //   console.log(memberData[0]);
+            //Fetch member data
+            const memberResponse = await fetch('http://localhost:3001/api/members');
+            const memberData = await memberResponse.json();
+            setMember(memberData[0]);
+            console.log(memberData[0]);
+
+            try {
+              const response = await axios.post(
+                'http://localhost:3001/api/downline', // Your API endpoint
+                { memno: '130097' }, // POST data payload
+                {
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                }
+              );
+              const memberData = response.data;
+              console.log('Response Data:', memberData);
+              setMember(memberData[0]); // If using React state
+            } catch (error) {
+              
+            }
           } catch (error) {
             console.error('Error fetching data:', error);
           }
@@ -46,7 +63,7 @@ function CommonStats() {
                   <div>
                     <h3 className='text-2xl'>Welcome {member?.MPD_ChqPayTo || 'NA'} - {member?.MJD_MemNo || ''}</h3>
                   </div>
-                  <div className='xs:hidden'>
+                  <div className=''>
                     <p className="quote font-bold text-right">Quote of the day</p>
                     <p className="quote font-bold text-right">{data.quote}</p>
                   </div>
