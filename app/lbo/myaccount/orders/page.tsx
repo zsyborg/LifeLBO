@@ -1,6 +1,6 @@
 'use client';
 import Image from "next/image";
-import SideNavbar from "@/app/components/SideNav";
+import Sidebar from "@/app/components/NewSideNav";
 import { useState, useEffect } from "react";
 import LBOInfo from "@/app/components/lbo/LBOInfo";
 import { Card, Button,  } from "flowbite-react";
@@ -17,15 +17,15 @@ const [visible, setVisible] = useState(false)
       <div className="w-full items-center justify-items-center min-h-screen">
         <div className="flex min-h-screen">
           <div className="min-h-screen">
-            <SideNavbar />
+            <Sidebar />
           </div>
 
-          <div className="w-full pl-64 pr-12">
+          <div className="w-full">
 
               <h3 className='fontlight bg-indigo-900 text-white text-2xl py-4 pl-8'>My Orders</h3>
                 <br/>
                 <br/>
-              <Card className="w-1/4">
+              <Card className="w-1/4 ml-4">
               <h5 className="text-2xl font-bold tracking-tight text-blue-900">
                     Order #75
                 </h5>

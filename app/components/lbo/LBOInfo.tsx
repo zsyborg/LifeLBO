@@ -119,7 +119,7 @@ function LBOInfo() {
   return (
     <>
     
-        <div className="w-full pl-64 pr-12">
+        <div className="w-full">
 
                     <h3 className='fontlight bg-indigo-900 text-white text-2xl py-4 pl-8'>Your Personal Details</h3>
                     <form onSubmit={handleSubmit}>
@@ -192,7 +192,7 @@ function LBOInfo() {
                         <div>
                             <p>Username: LBO12345</p><br/>
                             <p>LBO Number: LBO12345</p><br/>
-                            <p>Full Name: Gabriela Kamei</p><br/>
+                            <p>Full Name: Lifeis Speed Pvt. Ltd.</p><br/>
                             <p>Payment Type: E-Pin</p><br/>
                             <p>Joining/Upgrade Amount: E-Pin</p><br/>
                             <br/>

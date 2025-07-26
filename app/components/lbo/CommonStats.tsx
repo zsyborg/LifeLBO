@@ -7,9 +7,10 @@ import axios from 'axios';
 function CommonStats() {
 
   const [member, setMember] = useState<any>([null])
+  const [downline, setDownline] = useState<any>([]);
   const [data, setData] = useState<any>([]);
-
-
+  const [leftCount, setLeftCount] = useState(0);
+  const [rightCount, setRightCount] = useState(0);
   useEffect(() => {
         const fetchData = async () => {
           try {
@@ -26,18 +27,13 @@ function CommonStats() {
             console.log(memberData[0]);
 
             try {
-              const response = await axios.post(
-                'http://localhost:3001/api/downline', // Your API endpoint
-                { memno: '130097' }, // POST data payload
-                {
-                  headers: {
-                    'Content-Type': 'application/json',
-                  },
-                }
-              );
-              const memberData = response.data;
-              console.log('Response Data:', memberData);
-              setMember(memberData[0]); // If using React state
+              const downlineResponse = await fetch('http://localhost:3001/api/downline/' + memberData[0].MPD_MemId);
+              const downlineData = await downlineResponse.json();
+              setDownline(downlineData);
+              setLeftCount(downlineData.filter((item: any) => item.MDD_LeftCnt === 1).length);
+              setLeftCount(downlineData.filter((item: any) => item.MDD_RightCnt === 1).length);
+              console.log('Downline Count:', leftCount);
+              console.log('Downline Data:', downlineData);
             } catch (error) {
               
             }
@@ -53,11 +49,16 @@ function CommonStats() {
     
 
 
+  // Calculate downline counts before return
+  const leftDownlineCount = downline.filter((item: any) => item.MDD_LeftCnt === 1).length;
+  const rightDownlineCount = downline.filter((item: any) => item.MDD_RightCnt === 1).length;
+  const totalDownlineCount = leftDownlineCount + rightDownlineCount;
+
   return (
     <>
     
         {/* <div className="w-full lg:pl-64 md:pl-64 sm:pl-0 xs:pl-0 xs:pr-0 lg:pr-12 md:pr-12 pr-0 sm:pr-0"> */}
-        <div className="w-full  pr-0 sm:pr-0">
+        <div className="w-full pr-0 sm:pr-0">
                 
                 <div className="grid grid-cols-2 py-10 pl-8">
                   <div>
@@ -72,7 +73,7 @@ function CommonStats() {
                 <h2 className="pl-8 h-fit text-white bg-indigo-900 my-12">My Statistics</h2>
                 <div className="grid grid-cols-4 lg:grid-cols-4 md:grid-cols-4 xs:grid-cols-1 w-full pr-12 gap-8 mx-8 justify-center items-center">
                   <div className="h-40 bg-blue-500 text-white justify-center items-center flex flex-col rounded-lg shadow-2xl">
-                      <h3 className="text-3xl text-white">Paid 21-April-2025</h3>
+                      <h3 className="text-2xl text-white text-center">Paid 21-April-2025</h3>
                       <p>My Status</p>
                     </div>
     
@@ -82,16 +83,22 @@ function CommonStats() {
                       </div>
     
                     <div className="h-40 bg-red-500 text-white justify-center items-center flex flex-col rounded-lg shadow-2xl">
-                      <h3 className="text-3xl text-white">8</h3>
+                      <h3 className="text-3xl text-white">
+                        {totalDownlineCount}
+                      </h3>
                       <p>My Downline Count</p>
                       <div className="grid grid-cols-2 gap-4 flex flex-col w-full justify-items-center text-center">
                         <div className="">
-                        <h3 className="text-3xl text-white">8</h3>
-                          <p>Total</p>
+                        <h3 className="text-3xl text-white">
+                          {leftDownlineCount}
+                        </h3>
+                          <p>Left Total</p>
                           </div>
                         <div className="">
-                          <h3 className="text-3xl text-white">8</h3>
-                          <p>Total</p>
+                          <h3 className="text-3xl text-white">
+                            {rightDownlineCount}
+                          </h3>
+                          <p>Right Total</p>
                         </div>
                       </div>
                     </div>

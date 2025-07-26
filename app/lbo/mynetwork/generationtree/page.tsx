@@ -1,6 +1,6 @@
 'use client';
 import Image from "next/image";
-import SideNavbar from "@/app/components/SideNav";
+import Sidebar from "@/app/components/NewSideNav";
 import { useState, useEffect } from "react";
 import LBOInfo from "@/app/components/lbo/LBOInfo";
 import 'primereact/resources/themes/fluent-light/theme.css';
@@ -90,7 +90,7 @@ export default function GenerationTree() {
       <div className="w-full items-center justify-items-center min-h-screen">
         <div className="flex min-h-screen">
           <div className="min-h-screen">
-            <SideNavbar />
+            <Sidebar />
           </div>
 
           <div className="w-full pl-64">

@@ -59,7 +59,7 @@ const Sidebar = () => {
       <div className={collapsed ? 'collapsed': 'sidebar'}>
         <div className='sidebarHeader'>
           {!collapsed && <div><img src="/logo.png" className='w-15 h-15 rounded-full inline' alt='Lifeis Speed Logo'/>
-                  <p className='text-white inline'>Grabriela Kamei</p>
+                  <p className='text-white inline'>Lifeis Speed Pvt. Ltd.</p>
                   </div>
                 //   <span className='logo'>Dashboard</span>
                   }
