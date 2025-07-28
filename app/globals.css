@@ -34,8 +34,7 @@
 }
 
 body {
-  background: var(--foreground);
-  color: var(--background);
+
   font-family: "Ubuntu Sans", sans-serif;
   font-optical-sizing: auto;
   overflow-x: hidden;

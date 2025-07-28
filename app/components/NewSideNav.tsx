@@ -88,13 +88,13 @@ const Sidebar = () => {
         
                 
                 <li>
-                  <a href="/lbo/dashboard" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                  <a href="/lbo/dashboard" className="flex items-center p-2 text-base font-normal text-white hover:bg-gray-300 hover:text-gray-900 group">
                     <SlScreenDesktop />
                     <span className={isTextvisible ? 'hidden' : 'ml-3 navtext'}>Dashboard</span>
                   </a>
                 </li>
                 <li>
-                  <button onClick={() => handleToggle('myaccount')} type="button" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-pages" data-collapse-toggle="dropdown-pages">
+                  <button onClick={() => handleToggle('myaccount')} type="button" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900" aria-controls="dropdown-pages" data-collapse-toggle="dropdown-pages">
                     <FaUserTie/>
                     <span className={isTextvisible ? 'hidden': 'flex-1 ml-3 text-left whitespace-nowrap'} >My Account</span>
                     <svg aria-hidden="true" className={isTextvisible ? 'hidden' : 'w-6 h-6'} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
@@ -102,61 +102,61 @@ const Sidebar = () => {
         
                   <ul id="myaccount" className={openSubMenus['myaccount'] ? 'fadeIn dropdownpages' : 'hidden py-2 space-y-2'}>
                     <li>
-                      <a href="/lbo/myaccount/info" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">LBO Info</a>
+                      <a href="/lbo/myaccount/info" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">LBO Info</a>
                     </li>
                     <li>
-                      <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Upload KYC Document</a>
+                      <a href="#" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">Upload KYC Document</a>
                     </li>
                     <li>
-                      <a href="/lbo/myaccount/orders" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Orders</a>
+                      <a href="/lbo/myaccount/orders" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">Orders</a>
                     </li>
                     <li>
-                      <a href="/lbo/myaccount/invoices" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Invoices</a>
+                      <a href="/lbo/myaccount/invoices" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">Invoices</a>
                     </li>
                     <li>
-                      <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Address</a>
+                      <a href="#" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">Address</a>
                     </li>
                     <li>
-                      <a href="/lbo/myaccount/welcomekit" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Welcome Kit</a>
+                      <a href="/lbo/myaccount/welcomekit" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">Welcome Kit</a>
                     </li>
                    
                     <li>
-                      <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Download Documents</a>
+                      <a href="#" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">Download Documents</a>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <button type="button" onClick={() => handleToggle('mynetwork')} className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-sales" data-collapse-toggle="dropdown-sales">
+                  <button type="button" onClick={() => handleToggle('mynetwork')} className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900" aria-controls="dropdown-sales" data-collapse-toggle="dropdown-sales">
                     <LuNetwork/>
                     <span className={isTextvisible ? 'hidden' : 'flex-1 ml-3 text-left whitespace-nowrap'}>My Network</span>
                     <svg aria-hidden="true" className={isTextvisible ? 'hidden' : 'w-6 h-6'} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                   </button>
                   <ul id="mynetwork" className={openSubMenus['mynetwork'] ? 'fadeIn dropdownpages' : 'hidden py-2 space-y-2'}>
                     <li>
-                      <a href="/lbo/mynetwork/binary" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Binary Tree</a>
+                      <a href="/lbo/mynetwork/binary" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">Binary Tree</a>
                     </li>
                     <li>
-                      <a href="/lbo/mynetwork/idwise" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">ID-Wise Downline</a>
+                      <a href="/lbo/mynetwork/idwise" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">ID-Wise Downline</a>
                     </li>
                     <li>
-                      <a href="/lbo/mynetwork/generationtree" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Generation Tree</a>
+                      <a href="/lbo/mynetwork/generationtree" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">Generation Tree</a>
                     </li>
                     <li>
-                      <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">My Direct</a>
+                      <a href="#" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">My Direct</a>
                     </li>
                     <li>
-                      <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">My Downline</a>
+                      <a href="#" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">My Downline</a>
                     </li>
                     <li>
-                      <a href="" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Generation Downline</a>
+                      <a href="" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">Generation Downline</a>
                     </li>
                     <li>
-                      <a href="lbo/mynetwork/gentreeadjustment" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Generation Tree Adjustment</a>
+                      <a href="lbo/mynetwork/gentreeadjustment" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">Generation Tree Adjustment</a>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <a href="#" onClick={() => handleToggle('mycommission')} className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                  <a href="#" onClick={() => handleToggle('mycommission')} className="flex items-center p-2 text-base font-normal rounded-lg text-white hover:bg-gray-300 hover:text-gray-900 group">
                     <PiMoneyLight/>
                     <span className={isTextvisible ? 'hidden' : 'flex-1 ml-3 whitespace-nowrap'}>My Commision</span>
                     
@@ -164,49 +164,49 @@ const Sidebar = () => {
                   </a>
                   <ul id="mycommission" className={openSubMenus['mycommission'] ? 'fadeIn dropdownpages' : 'hidden py-2 space-y-2'}>
                     <li>
-                      <a href="/lbo/mycommission/ledger" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Commission Ledger</a>
+                      <a href="/lbo/mycommission/ledger" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">Commission Ledger</a>
                     </li>
                     <li>
-                      <a href="/lbo/mycommission/tds" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">TDS Details</a>
+                      <a href="/lbo/mycommission/tds" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">TDS Details</a>
                     </li>
                     <li>
-                      <a href="/lbo/mycommission/bigboss" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Bigboss Rewards</a>
+                      <a href="/lbo/mycommission/bigboss" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">Bigboss Rewards</a>
                     </li>
                     <li>
-                      <a href="/lbo/mynetwork/schemes" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Schemes & Offers</a>
+                      <a href="/lbo/mynetwork/schemes" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">Schemes & Offers</a>
                     </li>
                     <li>
-                      <a href="/lbo/mynetwork/bonus" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Matching Bonus Rewards</a>
+                      <a href="/lbo/mynetwork/bonus" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">Matching Bonus Rewards</a>
                     </li>
                     <li>
-                      <a href="/lbo/mynetwork/lapsereport" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Lapse Pair Report</a>
+                      <a href="/lbo/mynetwork/lapsereport" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">Lapse Pair Report</a>
                     </li>
                     <li>
-                      <a href="/lbo/mynetwork/speedsales" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Profit Team Carry Forward</a>
+                      <a href="/lbo/mynetwork/speedsales" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">Profit Team Carry Forward</a>
                     </li>
                     <li>
-                      <a href="/lbo/mynetwork/speedsales" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Spot Sales Incentive Income</a>
+                      <a href="/lbo/mynetwork/speedsales" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">Spot Sales Incentive Income</a>
                     </li>
                     <li>
-                      <a href="/lbo/mynetwork/speedsales" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Universal Rank Qualification</a>
+                      <a href="/lbo/mynetwork/speedsales" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">Universal Rank Qualification</a>
                     </li>
                     <li>
-                      <a href="/lbo/mynetwork/speedsales" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Unilevel Rank Qualification</a>
+                      <a href="/lbo/mynetwork/speedsales" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">Unilevel Rank Qualification</a>
                     </li>
                     <li>
-                      <a href="/lbo/mynetwork/speedsales" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Unilevel Career Income</a>
+                      <a href="/lbo/mynetwork/speedsales" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">Unilevel Career Income</a>
                     </li>
                     <li>
-                      <a href="/lbo/mynetwork/speedsales" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Leadership Incentive Income</a>
+                      <a href="/lbo/mynetwork/speedsales" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">Leadership Incentive Income</a>
                     </li>
                     <li>
-                      <a href="/lbo/mynetwork/speedsales" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Leadership Incentive Rank Qualification</a>
+                      <a href="/lbo/mynetwork/speedsales" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">Leadership Incentive Rank Qualification</a>
                     </li>
                     <li>
-                      <a href="/lbo/mynetwork/speedsales" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Same Level Income Report</a>
+                      <a href="/lbo/mynetwork/speedsales" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">Same Level Income Report</a>
                     </li>
                     <li>
-                      <a href="/lbo/mynetwork/speedsales" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Crorepati Rewards Qualification</a>
+                      <a href="/lbo/mynetwork/speedsales" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">Crorepati Rewards Qualification</a>
                     </li>
                   </ul>
                 </li>
@@ -214,7 +214,7 @@ const Sidebar = () => {
         
         
                 <li>
-                  <button type="button" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-authentication" data-collapse-toggle="dropdown-authentication">
+                  <button type="button" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900" aria-controls="dropdown-authentication" data-collapse-toggle="dropdown-authentication">
         
                     <FaNewspaper/>
         
@@ -230,7 +230,7 @@ const Sidebar = () => {
         
         
                 <li>
-                  <button type="button" onClick={() => handleToggle('ewallet')} className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-authentication" data-collapse-toggle="dropdown-authentication">
+                  <button type="button" onClick={() => handleToggle('ewallet')} className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900" aria-controls="dropdown-authentication" data-collapse-toggle="dropdown-authentication">
         
                     <FaCreditCard/>
         
@@ -240,28 +240,28 @@ const Sidebar = () => {
                   </button>
                   <ul id="ewallet" className={openSubMenus['ewallet'] ? 'fadeIn dropdownpages' : 'hidden py-2 space-y-2'}>
                     <li>
-                      <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Add Money Request</a>
+                      <a href="#" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">Add Money Request</a>
                     </li>
                     <li>
-                      <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Add Money Request Report</a>
+                      <a href="#" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">Add Money Request Report</a>
                     </li>
                     <li>
-                      <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Fund Transfer</a>
+                      <a href="#" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">Fund Transfer</a>
                     </li>
                     <li>
-                      <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Withdraw Amount</a>
+                      <a href="#" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">Withdraw Amount</a>
                     </li>
                     <li>
-                      <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Account Statement</a>
+                      <a href="#" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">Account Statement</a>
                     </li>
                     <li>
-                      <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Change Password</a>
+                      <a href="#" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">Change Password</a>
                     </li>
                     <li>
-                      <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Account Statement (Credit Note)</a>
+                      <a href="#" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">Account Statement (Credit Note)</a>
                     </li>
                     <li>
-                      <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Self Fund Transfer</a>
+                      <a href="#" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">Self Fund Transfer</a>
                     </li>
                   </ul>
                 </li>
@@ -271,7 +271,7 @@ const Sidebar = () => {
         
         
                 <li>
-                  <button type="button" onClick={() => handleToggle('epin')} className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-authentication" data-collapse-toggle="dropdown-authentication">
+                  <button type="button" onClick={() => handleToggle('epin')} className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900" aria-controls="dropdown-authentication" data-collapse-toggle="dropdown-authentication">
         
                     <FaCreditCard/>
         
@@ -281,22 +281,22 @@ const Sidebar = () => {
                   </button>
                   <ul id="epin" className={openSubMenus['epin'] ? 'fadeIn dropdownpages' : 'hidden py-2 space-y-2'}>
                     <li>
-                      <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Check E-Pin</a>
+                      <a href="#" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">Check E-Pin</a>
                     </li>
                     <li>
-                      <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">E-Pin Place Order</a>
+                      <a href="#" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">E-Pin Place Order</a>
                     </li>
                     <li>
-                      <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">E-Pin Order Details</a>
+                      <a href="#" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">E-Pin Order Details</a>
                     </li>
                     <li>
-                      <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">E-Pin Transfer</a>
+                      <a href="#" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">E-Pin Transfer</a>
                     </li>
                     <li>
-                      <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">E-Pin Report</a>
+                      <a href="#" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">E-Pin Report</a>
                     </li>
                     <li>
-                      <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Change Password</a>
+                      <a href="#" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">Change Password</a>
                     </li>
                   </ul>
                 </li>
@@ -305,7 +305,7 @@ const Sidebar = () => {
         
         
                 <li>
-                  <button type="button" onClick={() => handleToggle('communication')} className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-authentication" data-collapse-toggle="dropdown-authentication">
+                  <button type="button" onClick={() => handleToggle('communication')} className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900" aria-controls="dropdown-authentication" data-collapse-toggle="dropdown-authentication">
         
                     <LuSpeech/>
         
@@ -315,16 +315,16 @@ const Sidebar = () => {
                   </button>
                   <ul id="communication" className={openSubMenus['communication'] ? 'fadeIn dropdownpages' : 'hidden py-2 space-y-2'}>
                     <li>
-                      <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Compose</a>
+                      <a href="#" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">Compose</a>
                     </li>
                     <li>
-                      <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Inbox</a>
+                      <a href="#" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">Inbox</a>
                     </li>
                     <li>
-                      <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Sent</a>
+                      <a href="#" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">Sent</a>
                     </li>
                     <li>
-                      <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Folders</a>
+                      <a href="#" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">Folders</a>
                     </li>
                   </ul>
                 </li>
@@ -333,7 +333,7 @@ const Sidebar = () => {
         
         
                 <li>
-                  <button type="button" onClick={() => handleToggle('tickets')} className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-authentication" data-collapse-toggle="dropdown-authentication">
+                  <button type="button" onClick={() => handleToggle('tickets')} className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900" aria-controls="dropdown-authentication" data-collapse-toggle="dropdown-authentication">
         
                     <FaTicket/>
         
@@ -343,17 +343,17 @@ const Sidebar = () => {
                   </button>
                   <ul id="tickets" className={openSubMenus['tickets'] ? 'fadeIn dropdownpages' : 'hidden py-2 space-y-2'}>
                     <li>
-                      <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Add New Ticket</a>
+                      <a href="#" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">Add New Ticket</a>
                     </li>
                     <li>
-                      <a href="#" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">My Tickets</a>
+                      <a href="#" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900">My Tickets</a>
                     </li>
                   </ul>
                 </li>
         
         
                 <li>
-                  <button type="button" className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-authentication" data-collapse-toggle="dropdown-authentication">
+                  <button type="button" className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900" aria-controls="dropdown-authentication" data-collapse-toggle="dropdown-authentication">
         
                     <LuNewspaper/>
         
@@ -364,7 +364,7 @@ const Sidebar = () => {
                     </li>
         
                 <li>
-                  <button type="button" className="flex items-center p-2 w-full text-base font-normal text-white rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-authentication" data-collapse-toggle="dropdown-authentication">
+                  <button type="button" className="flex items-center p-2 w-full text-base font-normal text-white rounded-lg transition duration-75 group text-white hover:bg-gray-300 hover:text-gray-900" aria-controls="dropdown-authentication" data-collapse-toggle="dropdown-authentication">
         
                     <AiFillHome/>
         

@@ -11,7 +11,7 @@ export default function Dashboard() {
 
   return (
     <>
-      <div className="w-full items-center justify-items-center min-h-screen">
+      <div className="w-full items-center min-h-screen">
         <div className="flex min-h-screen">
           <div className="min-h-screen lg:visible md:visible xl:visible sm:visible">
             {/* <SideNavbar /> */}
