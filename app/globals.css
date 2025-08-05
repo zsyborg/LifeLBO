@@ -95,6 +95,18 @@ h2{
   font-weight: 800;
 }
 
+.parallelogram {
+    width: 400px;
+    height: auto;
+    transform: skew(-28deg);
+    background-color: red;
+  }
+  
+  .image{
+    transform: skew(20deg);
+    width: 100%;
+    height: 100%;
+  }
 .boxwine{
   position: absolute;
   width: 400px;
@@ -688,20 +700,27 @@ background-size:100%;
 
 .dropdown-menu {
   position: absolute;
-  top: 100px;
+  top: 70px;
   list-style: none;
   margin: 0;
   padding: 0;
   display: block;
   opacity: 0;
-  transition: all 500ms ease-in-out;
+  transition: all 200ms ease-in-out;
+}
+
+.dropdown{
+  z-index: 9999;
 }
 
 .dropdown:hover .dropdown-menu {
   display: block;
-  color: wheat;
+  color: rgb(0, 0, 0);
   opacity: 1;
-  background-color: #6754e2;
+  background-color: #d8d8d8;
+  border: 2px solid #000000;
+  padding: 1em;
+  /* box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); */
 }
 
 .dropdown-menu li,

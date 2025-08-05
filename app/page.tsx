@@ -124,7 +124,25 @@ export default function Home() {
           <img src="/slider2.jpeg" style={{minWidth:"100vw"}}/>
         </div> */}
 
-<div className="w-full sm:w-full lg:w-full">
+        <div className="w-full flex px-32" style={{height:"500px"}}>
+          <div className="h-full">
+             <img src="/1.png" className="h-full" />
+            </div>
+          <div className="relative h-full" style={{left:"-220px"}}>
+             <img src="/2.png" className="h-full" />
+          </div>
+            <div className="parallelogram pr-12 relative" style={{left:"-310px"}}>
+
+            </div>
+        </div>
+
+      <div className="w-full sm:w-full lg:w-full">
+          <img src="/sliderintro.png" className="w-full h-auto object-cover" alt="Slider Intro" />
+          <div className="bg-indigo-950 w-32 text-white p-4 text-center">
+            <p>Know More</p>
+          </div>
+      </div>
+{/* <div className="w-full sm:w-full lg:w-full">
 
         <ImageSlider
           items={images}
@@ -135,11 +153,11 @@ export default function Home() {
           autoPlay={true}
           />
 
-</div>
+</div> */}
         
         
         
-        <div className="container">
+        {/* <div className="container">
           <div className="flex flex-row items-center justify-center text-center">
             <div className="basis-full">
               <h1 className="text-4xl font-bold mb-4">Welcome to Our Store</h1>
@@ -156,11 +174,9 @@ export default function Home() {
             ))}
             </div>
 
-                {/* <SteamCards /> */}
-
             </div>
           </div>
-        </div>
+        </div> */}
 
 
 
