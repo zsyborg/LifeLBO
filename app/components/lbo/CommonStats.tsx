@@ -21,7 +21,7 @@ function CommonStats() {
             console.log(quoteData);
 
             //Fetch member data
-            const memberResponse = await fetch('http://localhost:3001/api/members');
+            const memberResponse = await fetch('http://localhost:3001/v1/members/292514S');
             const memberData = await memberResponse.json();
             setMember(memberData[0]);
             console.log(memberData[0]);
@@ -62,7 +62,7 @@ function CommonStats() {
                 
                 <div className="grid grid-cols-2 py-10 pl-8">
                   <div>
-                    <h3 className='text-2xl'>Welcome {member?.MPD_ChqPayTo || 'NA'} - {member?.MJD_MemNo || ''}</h3>
+                    <h3 className='text-2xl'>Welcome {member?.MPD_Name || 'NA'} - {member?.MJD_MemNo || ''}</h3>
                   </div>
                   <div className=''>
                     <p className="quote font-bold text-right">Quote of the day</p>

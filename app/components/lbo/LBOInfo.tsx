@@ -76,6 +76,11 @@ function LBOInfo() {
           }, []);
 
 
+          type FormDataState = {
+            file: File | null;
+            name: string;
+        };
+
           const [formData, setFormData] = useState({
             file: null,
             name: '',
@@ -83,7 +88,9 @@ function LBOInfo() {
           const [uploading, setUploading] = useState(false);
         
           const handleFileChange = (event:any) => {
-            setFormData({ ...formData, file: event.target.files[0] });
+            if (event.target.files && event.target.files[0]) {
+                setFormData({ ...formData, file: event.target.files[0] });
+            }
           };
         
           const handleInputChange = (event:any) => {
@@ -95,11 +102,14 @@ function LBOInfo() {
             setUploading(true);
         
             const data = new FormData();
-            data.append('file', formData.file);
+            if (formData.file) {
+                data.append('file', formData.file);
+            }
+
             data.append('name', formData.name);
         
             try {
-              const response = await fetch('http://localhost:3001/api/image', {
+              const response = await fetch('http://localhost:3001/v1/profilepic', {
                 method: 'POST',
                 body: data,
               });
