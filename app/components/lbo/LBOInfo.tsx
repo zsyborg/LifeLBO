@@ -9,7 +9,7 @@ import { FaPrint } from 'react-icons/fa6';
 import { AiFillEdit } from 'react-icons/ai';
 import {Dialog} from 'primereact/dialog';
 import { MdAddCircle } from 'react-icons/md';
-
+import { useMember } from '@/app/context/MemberContext';
 
 function LBOInfo() {
 
@@ -18,7 +18,7 @@ function LBOInfo() {
     const [year, setYear] = useState('');
     const [countryCode, setCountryCode] = useState('');
     const [visible, setVisible] = useState(false)
-
+    const { member, wallet, loading } = useMember();
     // const handleCountryChange = (e: { target: { value: React.SetStateAction<string>; }; }) => {
     //     setCountryCode(e.target.value);
     // };
@@ -168,7 +168,7 @@ function LBOInfo() {
                                 </div>
                                 <br/>
                                 <p className='font-bold'>Email</p>
-                                    <TextInput  type='email' placeholder='Email' onChange={handleInputChange}/>
+                                    <TextInput  type='email' placeholder='Email' value={member?.MPD_Email} onChange={handleInputChange}/>
                                     <br/>
                                     <div className='grid grid-cols-2'>
 
@@ -179,18 +179,18 @@ function LBOInfo() {
                                         </option>
                                     ))}
                                 </Select>
-                                <TextInput type='number' className='w-48'/>
+                                <TextInput type='number' className='w-48' value={member?.MPD_Mobile}/>
                                     </div>
                                     <br/>
                                     <p className='font-bold'>Withdrawal Options</p>
                                     <div className='grid grid-cols-2'>
                                         <div>
-                                            <Radio name='auto' value="auto" />
-                                            <Label htmlFor="withdrawal">Auto</Label>
-                                        </div>
-                                        <div>
                                             <Radio name='manual' value="manual" />
                                             <Label htmlFor="withdrawal">Manual</Label>
+                                        </div>
+                                        <div>
+                                            <Radio name='auto' value="auto" />
+                                            <Label htmlFor="withdrawal">Auto</Label>
                                         </div>
                                     </div>
                             </div>
@@ -200,14 +200,14 @@ function LBOInfo() {
 
                     </div>
                         <div>
-                            <p>Username: LBO12345</p><br/>
-                            <p>LBO Number: LBO12345</p><br/>
-                            <p>Full Name: Lifeis Speed Pvt. Ltd.</p><br/>
+                            {/* <p>Username: {member?.MPD_Name}</p><br/> */}
+                            <p>LBO Number: {member?.MJD_MemNo}</p><br/>
+                            <p>Full Name: {member?.MPD_Name}</p><br/>
                             <p>Payment Type: E-Pin</p><br/>
                             <p>Joining/Upgrade Amount: E-Pin</p><br/>
                             <br/>
                             <h4 className='font-bold'>Nominee Details</h4>
-                            <TextInput placeholder='Nominee Name'/>
+                            <TextInput placeholder='Nominee Name' value={member?.MPD_nomName}/>
                             <br/>
                             <p className='font-bold'>Nominee Date Of Birth</p>
                                 <div className='grid grid-cols-3'>
@@ -251,11 +251,11 @@ function LBOInfo() {
                         </div>
                         <div>
                             <p>
-                            Address: 101, Madina Apartments, Tere Gali, Near Jama Masjid, Andheri West., Mumbai, Mumbai, Maharashtra
+                            Address: {member?.MPD_Address || 'NA'}
                             </p><br/>
-                            <p>Zip/Postal Code: 400061</p><br/>
-                            <p>City: Mumbai</p><br/>
-                            <p>State: Mumbai</p><br/><br/>
+                            <p>Zip/Postal Code: {member?.MPD_PinCode || 'NA'}</p><br/>
+                            <p>City: {member?.MPD_City || 'NA'}</p><br/>
+                            <p>State: {member?.MPD_State || 'NA'}</p><br/><br/>
                             <p className='font-bold'>Change Password</p>
                             <TextInput type='password' placeholder='Old Password'/><br/>
                             <TextInput type='password' placeholder='New Password'/><br/>

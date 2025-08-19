@@ -4,10 +4,9 @@ import SideNavbar from "@/app/components/SideNav";
 import { useState, useEffect } from "react";
 import LBOInfo from "@/app/components/lbo/LBOInfo";
 import Sidebar from "@/app/components/NewSideNav";
-export default function Info() {
+import LBOMenu from "@/app/components/LBOMenu";
 
-  
-
+export default function Info({pageProps} : {pageProps: any}) {
 
   return (
     <>
@@ -17,7 +16,7 @@ export default function Info() {
               <Sidebar/>
           </div>
 
-            <LBOInfo/>
+            <LBOInfo {...pageProps}/>
             
         </div>
       </div>

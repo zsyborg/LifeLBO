@@ -4,8 +4,9 @@ import SideNavbar from "@/app/components/SideNav";
 import { useState, useEffect } from "react";
 import CommonStats from "@/app/components/lbo/CommonStats";
 import Sidebar from '@/app/components/NewSideNav';
-export default function Dashboard() {
+import { useMember } from '@/app/context/MemberContext';
 
+export default function Dashboard({pageProps} : {pageProps: any}) {
   
 
 
@@ -17,8 +18,9 @@ export default function Dashboard() {
             {/* <SideNavbar /> */}
             <Sidebar/>
           </div>
-
-            <CommonStats/>
+         
+              <CommonStats {...pageProps} />
+      
             
         </div>
       </div>

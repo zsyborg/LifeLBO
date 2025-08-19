@@ -23,7 +23,7 @@ import { OrganizationChart } from 'primereact/organizationchart';
 // import 'primereact/resources/themes/mdc-dark-indigo/theme.css';
 // import 'primereact/resources/themes/mdc-dark-deeppurple/theme.css';
 // import 'primereact/resources/themes/tailwind-light/theme.css';
-import 'primereact/resources/themes/fluent-light/theme.css';
+// import 'primereact/resources/themes/fluent-light/theme.css';
 import { FaUserLarge } from "react-icons/fa6";
 // import 'primereact/resources/themes/lara-light-blue/theme.css';
 // import 'primereact/resources/themes/lara-light-indigo/theme.css';
@@ -38,7 +38,7 @@ import { FaUserLarge } from "react-icons/fa6";
 // import 'primereact/resources/themes/viva-light/theme.css';
 // import 'primereact/resources/themes/viva-dark/theme.css';
 // import 'primereact/resources/themes/mira/theme.css';
-// import 'primereact/resources/themes/nano/theme.css';
+import 'primereact/resources/themes/nano/theme.css';
 // import 'primereact/resources/themes/saga-blue/theme.css';
 // import 'primereact/resources/themes/saga-green/theme.css';
 // import 'primereact/resources/themes/saga-orange/theme.css';
@@ -134,18 +134,47 @@ export default function Login() {
   return (
       <>
       <div className="w-full items-center justify-items-center min-h-screen">
-        <div className="flex min-h-screen">
+        <div className="flex min-h-screen w-full">
           <div className="min-h-screen">
             <Sidebar />
           </div>
 
-          <div className="w-full">
+          <div className="grow flex flex-col">
+              <h3 className='fontlight w-full bg-indigo-900 text-white text-2xl py-4 pl-8 pr-8'>Binary Tree</h3>
 
-              <h3 className='fontlight w-full bg-indigo-900 text-white text-2xl py-4 pl-8'>Binary Tree</h3>
+                <div className="w-full text-center justify-items-center items-center">
+                    <div className="">
+                        <h4>667400S</h4>
+                        <h4>29-08-2019</h4>
+                        <h4>AVIK SINGHA</h4>
+                        {/* <img src="/images/binary/blue.png" style={{width:"50px"}} /> */}
+                        <p>|</p>
+                    </div>
+                    <div className="flex w-full grow flex-col justify-center items-center">
+                        <hr style={{height:"2px", color:"black", width:"20%"}}></hr>
+                        <div className="flex w-full grow flex-row justify-center items-center">
+                            <div className="flex flex-col basis-1/5 justify-center">
+                                <p>|</p>
+                                <h4>667400S</h4>
+                                <h4>29-08-2019</h4>
+                                <h4>AVIK SINGHA</h4>
+                            </div>
+                            <div className="flex flex-col basis-1/5 justify-center">
+                                <p>|</p>
+                                <h4>667400S</h4>
+                                <h4>29-08-2019</h4>
+                                <h4>AVIK SINGHA</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             
-            <OrganizationChart value={data} nodeTemplate={nodeTemplate} />
+            {/* <OrganizationChart value={data} nodeTemplate={nodeTemplate} /> */}
 
         </div>
+
+
+        
         </div>
       </div>
     </>

@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Lato, Raleway, Ubuntu_Sans } from "next/font/google";
 import "./globals.css";
 import "./responsive.css";
-
 import { ThemeModeScript, ThemeConfig } from "flowbite-react";
+import { MemberProvider } from './context/MemberContext';
 
 const lato = Lato({
   variable: "--font-lato",
@@ -45,7 +45,9 @@ export default function RootLayout({
       >
 
         <ThemeConfig dark={false} />
-        {children}
+          <MemberProvider member={null} wallet={null}>
+            {children}
+          </MemberProvider>
       </body>
     </html>
   );

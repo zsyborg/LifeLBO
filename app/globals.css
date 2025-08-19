@@ -872,3 +872,111 @@ background-size:100%;
     width: 250px;
   }
 }
+
+
+
+.table-container {
+  overflow: auto;
+  overflow-x: scroll;
+  width: 80vw;
+  height: 80vh;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed;
+}
+
+
+
+.sticky-column {
+  position: sticky;
+  left: 0;
+  /* background-color: white; */
+  z-index: 1;
+}
+
+th.sticky-column:nth-child(1) {
+  left: 0;
+}
+
+th.sticky-column:nth-child(2) {
+  left: 100px;
+}
+td.sticky-column:nth-child(1) {
+  left: 0;
+}
+
+td.sticky-column:nth-child(2) {
+  left: 100px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  width: 180px;
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 11pt;
+}
+
+th:nth-child(1) {
+  width: 100px;
+}
+
+th:nth-child(2) {
+  width: 100px;
+}
+
+.thead{
+  background: #DC143C;  /* fallback for old browsers */
+  color: white;
+}
+.table-body{
+  height: 400px;
+}
+
+.backshade{
+  background: #D3CCE3;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #E9E4F0, #b0ebb8);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #E9E4F0, #b0ebb8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+
+/* Binary Tree */
+
+.head:after{
+  content: "";
+  display: block;
+  clear: both;
+  height: 25px;
+  width: 2px;
+  position: relative;
+  left: 50%;
+  background-color: #271942;
+}
+
+.secondhead:before{
+  content: "";
+  display: block;
+  clear: both;
+  width: 20%;
+  height: 2px;
+  position: absolute;
+  transform: translateY(-22px);
+  background-color: #271942;
+}
+
+.secondbinary:before{
+  content: "";
+  display: block;
+  clear: both;
+  height: 25px;
+  width: 2px;
+  position: relative;
+  left: 22%;
+  background-color: #271942;
+}

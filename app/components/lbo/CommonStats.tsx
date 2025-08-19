@@ -2,15 +2,20 @@ import React, { cache, useEffect, useState } from 'react';
 import Image from 'next/image';
 import LBOStats from './LBOStats';
 import axios from 'axios';
-
+import { useMember } from '../../context/MemberContext';
 
 function CommonStats() {
 
-  const [member, setMember] = useState<any>([null])
-  const [downline, setDownline] = useState<any>([]);
+  const {member, wallet, loading, leftCount, rightCount, downline} = useMember();
+  // const [member, setMember] = useState<any>([null])
   const [data, setData] = useState<any>([]);
-  const [leftCount, setLeftCount] = useState(0);
-  const [rightCount, setRightCount] = useState(0);
+  // const [downline, setDownline] = useState<any>([]);
+  // const [leftCount, setLeftCount] = useState(0);
+  // const [rightCount, setRightCount] = useState(0);
+  // const [wallet, setWallet] = useState(0);
+
+
+
   useEffect(() => {
         const fetchData = async () => {
           try {
@@ -21,10 +26,24 @@ function CommonStats() {
             console.log(quoteData);
 
             //Fetch member data
-            const memberResponse = await fetch('http://localhost:3001/v1/members/292514S');
+            const memberResponse = await fetch('http://localhost:3001/v1/members/667400S');
             const memberData = await memberResponse.json();
             setMember(memberData[0]);
             console.log(memberData[0]);
+
+
+            const walletResponse = await fetch('http://localhost:3001/v1/ewalletbalance',{
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                memno: memberData[0].MPD_MemId,
+              }),
+            });
+            const walletData = await walletResponse.json();
+            setWallet(walletData[0]);
+            console.log(walletData[0]);
 
             try {
               const downlineResponse = await fetch('http://localhost:3001/api/downline/' + memberData[0].MPD_MemId);
@@ -42,7 +61,7 @@ function CommonStats() {
           }
         };
 
-        fetchData();
+        // fetchData();
         
         }, []);
 
@@ -50,9 +69,15 @@ function CommonStats() {
 
 
   // Calculate downline counts before return
-  const leftDownlineCount = downline.filter((item: any) => item.MDD_LeftCnt === 1).length;
-  const rightDownlineCount = downline.filter((item: any) => item.MDD_RightCnt === 1).length;
+  const leftDownlineCount = downline.filter((item: any) => item.IDD_LR === 1).length;
+  const rightDownlineCount = downline.filter((item: any) => item.IDD_LR === 2).length;
   const totalDownlineCount = leftDownlineCount + rightDownlineCount;
+
+
+  if(!member || !wallet || loading) {
+    return <div>Loading...</div>;
+  }
+
 
   return (
     <>
@@ -118,7 +143,7 @@ function CommonStats() {
                     </div>
     
                     <div className="h-40 bg-amber-500 text-white justify-center items-center flex flex-col rounded-lg shadow-2xl">
-                      <h3 className="text-3xl text-white">0.00</h3>
+                      <h3 className="text-3xl text-white">₹ {wallet.AccountBal}</h3>
                         <p>E-Wallet Balance</p>
                       </div>
     

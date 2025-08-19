@@ -14,15 +14,17 @@ const [visible, setVisible] = useState(false)
 
   return (
     <>
-      <div className="w-full items-center justify-items-center min-h-screen">
+      <div className="min-w-full items-center flex justify-items-center min-h-screen">
         <div className="flex min-h-screen">
           <div className="min-h-screen">
             <Sidebar />
           </div>
 
-          <div className="w-full">
+          <div className="grow grid-rows-12 min-w-lvw">
 
-              <h3 className='fontlight bg-indigo-900 text-white text-2xl py-4 pl-8'>My Orders</h3>
+              <h3 className='fontlight bg-indigo-900 text-white text-2xl py-4 pl-8'>
+                My Orders
+                </h3>
                 <br/>
                 <br/>
               <Card className="w-1/4 ml-4">
