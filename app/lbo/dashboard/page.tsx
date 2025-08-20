@@ -6,7 +6,7 @@ import CommonStats from "@/app/components/lbo/CommonStats";
 import Sidebar from '@/app/components/NewSideNav';
 import { useMember } from '@/app/context/MemberContext';
 
-export default function Dashboard({pageProps} : {pageProps: any}) {
+export default function Dashboard(pageProps: any) {
   
 
 
