@@ -20,42 +20,42 @@ function CommonStats() {
         const fetchData = async () => {
           try {
             // Fetch quote data
-            const quoteResponse = await fetch('https://quotes-api-self.vercel.app/quote', {cache: 'force-cache'});
-            const quoteData = await quoteResponse.json();
-            setData(quoteData);
-            console.log(quoteData);
+            // const quoteResponse = await fetch('https://quotes-api-self.vercel.app/quote', {cache: 'force-cache'});
+            // const quoteData = await quoteResponse.json();
+            // setData(quoteData);
+            // console.log(quoteData);
 
             //Fetch member data
-            const memberResponse = await fetch('http://localhost:3001/v1/members/667400S');
-            const memberData = await memberResponse.json();
-            setMember(memberData[0]);
-            console.log(memberData[0]);
+            // const memberResponse = await fetch('http://localhost:3001/v1/members/667400S');
+            // const memberData = await memberResponse.json();
+            // setMember(memberData[0]);
+            // console.log(memberData[0]);
 
 
-            const walletResponse = await fetch('http://localhost:3001/v1/ewalletbalance',{
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({
-                memno: memberData[0].MPD_MemId,
-              }),
-            });
-            const walletData = await walletResponse.json();
-            setWallet(walletData[0]);
-            console.log(walletData[0]);
+            // const walletResponse = await fetch('http://localhost:3001/v1/ewalletbalance',{
+            //   method: 'POST',
+            //   headers: {
+            //     'Content-Type': 'application/json',
+            //   },
+            //   body: JSON.stringify({
+            //     memno: memberData[0].MPD_MemId,
+            //   }),
+            // });
+            // const walletData = await walletResponse.json();
+            // setWallet(walletData[0]);
+            // console.log(walletData[0]);
 
-            try {
-              const downlineResponse = await fetch('http://localhost:3001/api/downline/' + memberData[0].MPD_MemId);
-              const downlineData = await downlineResponse.json();
-              setDownline(downlineData);
-              setLeftCount(downlineData.filter((item: any) => item.MDD_LeftCnt === 1).length);
-              setLeftCount(downlineData.filter((item: any) => item.MDD_RightCnt === 1).length);
-              console.log('Downline Count:', leftCount);
-              console.log('Downline Data:', downlineData);
-            } catch (error) {
+            // try {
+            //   const downlineResponse = await fetch('http://localhost:3001/v1/downline/' + memberData[0].MPD_MemId);
+            //   const downlineData = await downlineResponse.json();
+            //   setDownline(downlineData);
+            //   setLeftCount(downlineData.filter((item: any) => item.MDD_LeftCnt === 1).length);
+            //   setLeftCount(downlineData.filter((item: any) => item.MDD_RightCnt === 1).length);
+            //   console.log('Downline Count:', leftCount);
+            //   console.log('Downline Data:', downlineData);
+            // } catch (error) {
               
-            }
+            // }
           } catch (error) {
             console.error('Error fetching data:', error);
           }
@@ -69,10 +69,11 @@ function CommonStats() {
 
 
   // Calculate downline counts before return
-  const leftDownlineCount = downline.filter((item: any) => item.IDD_LR === 1).length;
-  const rightDownlineCount = downline.filter((item: any) => item.IDD_LR === 2).length;
+  const leftDownlineCount = downline.filter((item: any) => item.MDD_LeftCnt === 1).length;
+  const rightDownlineCount = downline.filter((item: any) => item.MDD_RightCnt === 1).length;
   const totalDownlineCount = leftDownlineCount + rightDownlineCount;
-
+console.log('Left Downline Count:', leftDownlineCount);
+console.log('Right Downline Count:', rightDownlineCount);
 
   if(!member || !wallet || loading) {
     return <div>Loading...</div>;
@@ -115,13 +116,13 @@ function CommonStats() {
                       <div className="grid grid-cols-2 gap-4 flex flex-col w-full justify-items-center text-center">
                         <div className="">
                         <h3 className="text-3xl text-white">
-                          {leftDownlineCount}
+                          {leftCount}
                         </h3>
                           <p>Left Total</p>
                           </div>
                         <div className="">
                           <h3 className="text-3xl text-white">
-                            {rightDownlineCount}
+                            {rightCount}
                           </h3>
                           <p>Right Total</p>
                         </div>

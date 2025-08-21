@@ -8,6 +8,7 @@ import {Dialog} from 'primereact/dialog';
 import { PiShoppingCartFill } from "react-icons/pi";
 import {PrimeReactProvider} from 'primereact/api';
 import { OrganizationChart } from 'primereact/organizationchart';
+import styles from './page.modules.css';
 
 // import 'primereact/resources/themes/md-light-indigo/theme.css';
 // import 'primereact/resources/themes/bootstrap4-light-blue/theme.css';
@@ -139,32 +140,165 @@ export default function Login() {
             <Sidebar />
           </div>
 
-          <div className="grow flex flex-col">
+              <div className="grow flex flex-col">
               <h3 className='fontlight w-full bg-indigo-900 text-white text-2xl py-4 pl-8 pr-8'>Binary Tree</h3>
 
                 <div className="w-full text-center justify-items-center items-center">
-                    <div className="">
-                        <h4>667400S</h4>
-                        <h4>29-08-2019</h4>
-                        <h4>AVIK SINGHA</h4>
-                        {/* <img src="/images/binary/blue.png" style={{width:"50px"}} /> */}
+                    <div className="text-center items-center justify-items-center">
+                        <h4 className={styles.myh4}>667400S</h4>
+                        <h4 className={styles.myh4}>29-08-2019</h4>
+                        <h4 className={styles.myh4}>AVIK SINGHA</h4>
+                        {/* {binary[0].SponsorName} */}
+                        <img src="/images/binary/blue.png" style={{width:"50px"}} />
                         <p>|</p>
                     </div>
                     <div className="flex w-full grow flex-col justify-center items-center">
-                        <hr style={{height:"2px", color:"black", width:"20%"}}></hr>
+                        <hr style={{height:"2px", color:"black", width:"28%", border:"1px solid black"}}></hr>
+                            {/* Second Level */}
                         <div className="flex w-full grow flex-row justify-center items-center">
-                            <div className="flex flex-col basis-1/5 justify-center">
+                            <div className="flex flex-col basis-1/5 justify-center justify-items-center items-center">
                                 <p>|</p>
-                                <h4>667400S</h4>
-                                <h4>29-08-2019</h4>
-                                <h4>AVIK SINGHA</h4>
-                            </div>
-                            <div className="flex flex-col basis-1/5 justify-center">
+                                <h4 className={styles.myh4}>667400S</h4>
+                                <h4 className={styles.myh4}>29-08-2019</h4>
+                                <h4 className={styles.myh4}>AVIK SINGHA</h4>
+                                <img src="/images/binary/orange.png" style={{width:"50px"}} />
                                 <p>|</p>
-                                <h4>667400S</h4>
-                                <h4>29-08-2019</h4>
-                                <h4>AVIK SINGHA</h4>
                             </div>
+                            <div className="flex flex-col basis-1/12 justify-center justify-items-center items-center">
+                            </div>
+                            <div className="flex flex-col basis-1/5 justify-center justify-items-center items-center">
+                                <p>|</p>
+                                <h4 className={styles.myh4}>667400S</h4>
+                                <h4 className={styles.myh4}>29-08-2019</h4>
+                                <h4 className={styles.myh4}>AVIK SINGHA</h4>
+                                <img src="/images/binary/green.png" style={{width:"50px"}} />
+                                <p>|</p>
+                            </div>
+                        </div>
+                        {/* Third Level */}
+                        <hr style={{height:"2px", color:"black", width:"39%", border:"1px solid black"}}></hr>
+                     <div className="flex w-2/3 flex-row justify-center items-center">
+                            <div className="flex flex-col basis-1/6 justify-center justify-items-center items-center">
+                                <p>|</p>
+                                <h4 className={styles.myh4}>667400S</h4>
+                                <h4 className={styles.myh4}>29-08-2019</h4>
+                                <h4 className={styles.myh4}>AVIK SINGHA</h4>
+                                <img src="/images/binary/orange.png" style={{width:"50px"}} />
+                                <p>|</p>
+                            </div>
+                            <div className="flex flex-col basis-1/6 justify-center justify-items-center items-center">
+                                <p>|</p>
+                                <h4 className={styles.myh4}>667400S</h4>
+                                <h4 className={styles.myh4}>29-08-2019</h4>
+                                <h4 className={styles.myh4}>AVIK SINGHA</h4>
+                                <img src="/images/binary/blue.png" style={{width:"50px"}} />
+                                <p>|</p>
+                            </div>
+                            <div className="flex flex-col basis-1/12 justify-center justify-items-center items-center">
+                            </div>
+                            <div className="flex flex-col basis-1/6 justify-center justify-items-center items-center">
+                                <p>|</p>
+                                <h4 className={styles.myh4}>667400S</h4>
+                                <h4 className={styles.myh4}>29-08-2019</h4>
+                                <h4 className={styles.myh4}>AVIK SINGHA</h4>
+                                <img src="/images/binary/black.png" style={{width:"50px"}} />
+                                <p>|</p>
+                            </div>
+                            <div className="flex flex-col basis-1/6 justify-center justify-items-center items-center">
+                                <p>|</p>
+                                <h4 className={styles.myh4}>667400S</h4>
+                                <h4 className={styles.myh4}>29-08-2019</h4>
+                                <h4 className={styles.myh4}>AVIK SINGHA</h4>
+                                <img src="/images/binary/green.png" style={{width:"50px"}} />
+                                <p>|</p>
+                            </div>
+                        </div>
+                        <hr style={{height:"2px", color:"black", width:"46%", border:"1px solid black"}}></hr>
+                        
+                        
+                        {/* Fourth Level */}
+                        <div className="flex w-full flex-row">
+                             <div className="flex flex-col basis-[21vw] justify-center justify-items-center items-center">
+                            </div>
+                            <div className="flex flex-row basis-[10vw] justify-center justify-items-center items-center">
+                                <div className="flex flex-col basis-1/2 justify-center justify-items-center items-center">
+                                    <p>|</p>
+                                    <h4 className={styles.myh4}>667400S</h4>
+                                    <h4 className={styles.myh4}>29-08-2019</h4>
+                                    <h4 className={styles.myh4}>AVIK SINGHA</h4>
+                                    <img src="/images/binary/orange.png" style={{width:"50px"}} />
+                                </div>
+                                <div className="flex flex-col basis-1/2 justify-center justify-items-center items-center">
+                                    <p>|</p>
+                                    <h4 className={styles.myh4}>667400S</h4>
+                                    <h4 className={styles.myh4}>29-08-2019</h4>
+                                    <h4 className={styles.myh4}>AVIK SINGHA</h4>
+                                    <img src="/images/binary/blue.png" style={{width:"50px"}} />
+                                </div>
+                            </div>
+                            
+               
+
+                            <div className="flex flex-row basis-[10vw] justify-center justify-items-center items-center">
+                                <div className="flex flex-col basis-1/2 justify-center justify-items-center items-center">
+                                    <p>|</p>
+                                    <h4 className={styles.myh4}>667400S</h4>
+                                    <h4 className={styles.myh4}>29-08-2019</h4>
+                                    <h4 className={styles.myh4}>AVIK SINGHA</h4>
+                                    <img src="/images/binary/orange.png" style={{width:"50px"}} />
+                                </div>
+                                <div className="flex flex-col basis-1/2 justify-center justify-items-center items-center">
+                                    <p>|</p>
+                                    <h4 className={styles.myh4}>667400S</h4>
+                                    <h4 className={styles.myh4}>29-08-2019</h4>
+                                    <h4 className={styles.myh4}>AVIK SINGHA</h4>
+                                    <img src="/images/binary/blue.png" style={{width:"50px"}} />
+                                </div>
+                            </div>
+
+
+                            <div className="flex flex-col basis-[4vw] justify-center justify-items-center items-center">
+                            </div>
+
+                            <div className="flex flex-row basis-[10vw] justify-center justify-items-center items-center">
+                                <div className="flex flex-col basis-1/2 justify-center justify-items-center items-center">
+                                    <p>|</p>
+                                    <h4 className={styles.myh4}>667400S</h4>
+                                    <h4 className={styles.myh4}>29-08-2019</h4>
+                                    <h4 className={styles.myh4}>AVIK SINGHA</h4>
+                                    <img src="/images/binary/orange.png" style={{width:"50px"}} />
+                                </div>
+                                <div className="flex flex-col basis-1/2 justify-center justify-items-center items-center">
+                                    <p>|</p>
+                                    <h4 className={styles.myh4}>667400S</h4>
+                                    <h4 className={styles.myh4}>29-08-2019</h4>
+                                    <h4 className={styles.myh4}>AVIK SINGHA</h4>
+                                    <img src="/images/binary/blue.png" style={{width:"50px"}} />
+                                </div>
+                            </div>
+                            
+
+                            <div className="flex flex-row basis-[10vw] justify-center justify-items-center items-center">
+                                <div className="flex flex-col basis-1/2 justify-center justify-items-center items-center">
+                                    <p>|</p>
+                                    <h4 className={styles.myh4}>667400S</h4>
+                                    <h4 className={styles.myh4}>29-08-2019</h4>
+                                    <h4 className={styles.myh4}>AVIK SINGHA</h4>
+                                    <img src="/images/binary/orange.png" style={{width:"50px"}} />
+                                </div>
+                                <div className="flex flex-col basis-1/2 justify-center justify-items-center items-center">
+                                    <p>|</p>
+                                    <h4 className={styles.myh4}>667400S</h4>
+                                    <h4 className={styles.myh4}>29-08-2019</h4>
+                                    <h4 className={styles.myh4}>AVIK SINGHA</h4>
+                                    <img src="/images/binary/blue.png" style={{width:"50px"}} />
+                                </div>
+                            </div>
+                       
+                       
+                       
+                       
+                       
                         </div>
                     </div>
                 </div>
@@ -172,6 +306,7 @@ export default function Login() {
             {/* <OrganizationChart value={data} nodeTemplate={nodeTemplate} /> */}
 
         </div>
+
 
 
         

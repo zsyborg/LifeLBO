@@ -6,7 +6,7 @@ import LBOInfo from "@/app/components/lbo/LBOInfo";
 import Sidebar from "@/app/components/NewSideNav";
 import LBOMenu from "@/app/components/LBOMenu";
 
-export default function Info({pageProps} : {pageProps: any}) {
+export default function Info(pageProps: any) {
 
   return (
     <>

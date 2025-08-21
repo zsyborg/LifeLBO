@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+                                                import type { Metadata } from "next";
 import { Geist, Geist_Mono, Lato, Raleway, Ubuntu_Sans } from "next/font/google";
 import "./globals.css";
 import "./responsive.css";
@@ -45,7 +45,7 @@ export default function RootLayout({
       >
 
         <ThemeConfig dark={false} />
-          <MemberProvider member={null} wallet={null}>
+          <MemberProvider member={null} wallet={null} downline={[]} leftCount={0} rightCount={0} iddownline={[]}>
             {children}
           </MemberProvider>
       </body>

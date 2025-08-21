@@ -40,17 +40,17 @@ iddownline: any; }) => {
         const walletData = await walletResponse.json();
         setWallet(walletData[0]);
 
-            // try {
-            //   const downlineResponse = await fetch('http://localhost:3001/api/downline/' + memberData[0].MPD_MemId);
-            //   const downlineData = await downlineResponse.json();
-            //   setDownline(downlineData);
-            //   setLeftCount(downlineData.filter((item: any) => item.MDD_LeftCnt === 1).length);
-            //   setRightCount(downlineData.filter((item: any) => item.MDD_RightCnt === 1).length);
-            //   // console.log('Downline Count:', leftCount);
-            //   // console.log('Downline Data:', downlineData);
-            // } catch (error) {
+            try {
+              const downlineResponse = await fetch('http://localhost:3001/v1/downline/' + memberData[0].MPD_MemId);
+              const downlineData = await downlineResponse.json();
+              setDownline(downlineData);
+              setLeftCount(downlineData.filter((item: any) => item.MDD_LeftCnt === 1).length);
+              setRightCount(downlineData.filter((item: any) => item.MDD_RightCnt === 1).length);
+              // console.log('Downline Count:', leftCount);
+              // console.log('Downline Data:', downlineData);
+            } catch (error) {
               
-            // }
+            }
 
               const url = "http://localhost:3001/v1/idwisedownline"
               const data = {"memno": String(memberData[0].MJD_MemNo)}
@@ -59,9 +59,9 @@ iddownline: any; }) => {
                 console.log(response.data);
                 // Assign response data to iddownline variable
                 setIddownline(response.data);
-                setDownline(response.data);
-                setLeftCount(iddownline.filter((item: any) => item.IDD_LR === 1).length);
-                setRightCount(iddownline.filter((item: any) => item.IDD_LR === 2).length);
+                // setDownline(response.data);
+                // setLeftCount(iddownline.filter((item: any) => item.IDD_LR === 1).length);
+                // setRightCount(iddownline.filter((item: any) => item.IDD_LR === 2).length);
                 console.log(iddownline);
                 console.log("It works");
               })
